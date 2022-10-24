@@ -1,4 +1,4 @@
-package com.corso.test;
+package corso.test;
 
 import java.util.List;
 import org.springframework.beans.factory.BeanFactory;
@@ -11,7 +11,7 @@ import corso.model.Viaggio;
 import corso.spring.Beans;
 
 @SuppressWarnings("unused")
-public class TestMyFerrovie {
+public class TestFerrovie {
 
 	public static void main(String[] args) {
 		
@@ -34,11 +34,11 @@ public class TestMyFerrovie {
 //			System.out.println(tr);
 //		}
 		
-//		List<Treno> treni = daoTreno.listAll();
-//		for (Treno tr : treni)
-//		{
-//			System.out.println(tr);
-//		}
+		List<Treno> treni = daoTreno.listAll();
+		for (Treno tr : treni)
+		{
+			System.out.println(tr);
+		}
 		
 //		Stazione arrivo = daoViaggio.findArrivo(1);
 //		Stazione partenza = daoViaggio.findPartenza(1);

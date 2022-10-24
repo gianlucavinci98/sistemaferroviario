@@ -1,4 +1,4 @@
-package com.corso.test;
+package corso.test;
 
 import org.springframework.beans.factory.BeanFactory;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
@@ -17,6 +17,7 @@ public class TestUtente {
 	}
 
 	private static void testFindUser() {
+		@SuppressWarnings("resource")
 		BeanFactory factory = new AnnotationConfigApplicationContext(Beans.class);
 		UtenteDAO dao = factory.getBean("utenteDAO",UtenteDAO.class);
 		Utente u = dao.findUserByUsername("Andrea");
