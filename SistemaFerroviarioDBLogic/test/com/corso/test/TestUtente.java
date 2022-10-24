@@ -20,7 +20,7 @@ public class TestUtente {
 		BeanFactory factory = new AnnotationConfigApplicationContext(Beans.class);
 		UtenteDAO dao = factory.getBean("utenteDAO",UtenteDAO.class);
 		Utente u = dao.findUserByUsername("Andrea");
-		System.out.println(u.getPsw());
+		System.out.println(u.getUsername());
 	}
 
 }
