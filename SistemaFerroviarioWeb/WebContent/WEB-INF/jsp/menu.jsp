@@ -17,7 +17,7 @@
 			<li><a href = "#">Home</a></li>
 			<li class="has-children"><a href = "#">Dipendente</a>
 					<ul class="submenu">
-					<li><a href="#">Funzione1</a></li>
+					<li><a href="allDipendenti">Tutti Dipendenti</a></li>
 					<li><a href="#">Funzione2</a></li>
 					<li><a href="#">Funzione3</a></li>
 					</ul>

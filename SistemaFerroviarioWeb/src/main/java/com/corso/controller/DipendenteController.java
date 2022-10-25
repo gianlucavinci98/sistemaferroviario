@@ -19,6 +19,7 @@ public class DipendenteController {
 	{
 		DipendenteService d= new DipendenteService();
 		List<Dipendente> lista= d.getAllDipendenti();
+		m.addAttribute("dimensione", lista.size());
 		m.addAttribute("lista",lista);
 		return "/dipendente";
 	}
