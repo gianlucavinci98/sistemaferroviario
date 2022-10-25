@@ -63,4 +63,11 @@ public class Dipendente {
 		this.ruolo = ruolo;
 	}
 
+	@Override
+	public String toString() {
+		return "Dipendente [idDipendente=" + idDipendente + ", nome=" + nome + ", cognome=" + cognome + ", ruolo="
+				+ ruolo + "]";
+	}
+	
+
 }
