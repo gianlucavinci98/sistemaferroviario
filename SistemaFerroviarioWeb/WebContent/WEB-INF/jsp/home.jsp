@@ -11,11 +11,8 @@
 <body>
 <div>
 	<%@ include file="menu.jsp" %>
+	
 </div>
-
-
-
-
 
 
 </body>

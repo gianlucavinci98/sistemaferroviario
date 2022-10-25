@@ -1,5 +1,5 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1"%>
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1" pageEncoding="ISO-8859-1"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -25,7 +25,9 @@
 			<li><a href = "#">Viaggio</a></li>
 			<li class="has-children"><a href = "#">Treno</a>
 				<ul class=submenu>
-					<li><a href="#">Funzione1</a></li>
+					<c:if test="${sessionScope.utente.livello>1}">
+						<li><a href="#">Costruisci Treno</a></li>
+					</c:if>
 					<li><a href="#">Funzione2</a></li>
 					<li><a href="#">Funzione3</a></li>
 				</ul>
