@@ -24,6 +24,8 @@ public class LoginController {
 	public String home(@ModelAttribute Utente u,Model m,HttpSession session) {
 		LoginService service = new LoginService();
 		Utente utente = service.getUser(u.getUsername());
+		
+		
 		if(utente==null) {
 			return "redirect:/";
 		}
@@ -38,5 +40,13 @@ public class LoginController {
 		
 		
 	}
+	
+	@GetMapping("/logout")
+	public String logout(HttpSession session,Model m) {
+		session.invalidate();
+		return "redirect:/loginPage";
+	}
+	
+	
 
 }

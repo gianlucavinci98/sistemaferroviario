@@ -13,9 +13,6 @@
 	<%@ include file="menu.jsp" %>
 </div>
 
-	
-	
-	
 
 
 </body>

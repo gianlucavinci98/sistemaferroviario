@@ -1,5 +1,7 @@
 package com.corso.controller;
 
+import javax.servlet.http.HttpSession;
+
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -13,9 +15,12 @@ import corso.model.Treno;
 public class HomeController {
 	
 	@GetMapping("/")
-	public String home()
+	public String home(HttpSession session)
 	{
+		if(session.getAttribute("utente")!=null)
 		return "home";
+		else
+			return "redirect:/loginPage";
 	}
 	
 	@GetMapping("/infoTreno")
