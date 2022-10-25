@@ -1,65 +1,79 @@
 package corso.model;
 
+import java.time.LocalDate;
+
+import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
+
+import org.hibernate.annotations.Fetch;
+import org.hibernate.annotations.FetchMode;
 
 @Entity
 @Table (name = "turno")
 public class Turno {
 	
 	@Id
-	@GeneratedValue (strategy = GenerationType.IDENTITY)
+	@GeneratedValue(strategy=GenerationType.AUTO)
 	private Integer idTurno;
 	
+	@ManyToOne(optional=false, fetch=FetchType.EAGER)
+	@Fetch(value=FetchMode.SELECT)
+	@JoinColumn(name="idDipendente", nullable=false, updatable=false)
+	private Dipendente dipendente;
 	
-//	private Dipendente dipendente;
-//	
-//	private Treno treno;
-//	
-//	private Date dataTurno;
-//
-//	public Turno() {
-//	}
-//
-//	public Turno(Dipendente dipendente, Treno treno, Date dataTurno) {
-//		this.dipendente = dipendente;
-//		this.treno = treno;
-//		this.dataTurno = dataTurno;
-//	}
-//
-//	public Integer getIdTurno() {
-//		return idTurno;
-//	}
-//
-//	public void setIdTurno(Integer idTurno) {
-//		this.idTurno = idTurno;
-//	}
-//
-//	public Dipendente getDipendente() {
-//		return dipendente;
-//	}
-//
-//	public void setDipendente(Dipendente dipendente) {
-//		this.dipendente = dipendente;
-//	}
-//
-//	public Treno getTreno() {
-//		return treno;
-//	}
-//
-//	public void setTreno(Treno treno) {
-//		this.treno = treno;
-//	}
-//
-//	public Date getDataTurno() {
-//		return dataTurno;
-//	}
-//
-//	public void setDataTurno(Date dataTurno) {
-//		this.dataTurno = dataTurno;
-//	}
+	@ManyToOne(optional=false, fetch=FetchType.EAGER)
+	@Fetch(value=FetchMode.SELECT)
+	@JoinColumn(name="idTreno", nullable=false, updatable=false)
+	private Treno treno;
+	
+	@Column(name="dataTurno")
+	private LocalDate dataTurno;
+	
+	public Turno() {}
 
+	public Integer getIdTurno() {
+		return idTurno;
+	}
+
+	public void setIdTurno(Integer idTurno) {
+		this.idTurno = idTurno;
+	}
+
+	public Dipendente getDipendente() {
+		return dipendente;
+	}
+
+	public void setDipendente(Dipendente dipendente) {
+		this.dipendente = dipendente;
+	}
+
+	public Treno getTreno() {
+		return treno;
+	}
+
+	public void setTreno(Treno treno) {
+		this.treno = treno;
+	}
+
+	public LocalDate getDataTurno() {
+		return dataTurno;
+	}
+
+	public void setDataTurno(LocalDate dataTurno) {
+		this.dataTurno = dataTurno;
+	}
+
+	@Override
+	public String toString() {
+		return "Turno [idTurno=" + idTurno + ", dipendente=" + dipendente + ", treno=" + treno + ", dataTurno="
+				+ dataTurno + "]";
+	}
+	
 }
