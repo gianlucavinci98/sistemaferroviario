@@ -8,19 +8,26 @@
 <meta charset="ISO-8859-1">
 <title>LoginPage</title>
 </head>
+<style>
+	<%@include file="LoginPage.css" %>
+</style>
 <body>
 
 
 <form:form modelAttribute="user" method="get">
 
-Username <form:input path="username"/><br><br>
-Password <form:input path="psw" type="password"/><br><br>
+ <label for="username">Username</label>
+        <form:input type="text" placeholder="Username" path="username"/>
 
-<input type="submit" name="submit" formaction="login" value ="login">
+        <label for="password">Password</label>
+        <form:input type="password" placeholder="Password" path="psw"/>
+
+<input class="btn from-center" type="submit" name="submit" formaction="login" value ="login">
+<input class="btn from-center" type="submit" name="submit" formaction="register" value="Register"/>
+
 
 </form:form>
-
-
+  
 
 </body>
 </html>
