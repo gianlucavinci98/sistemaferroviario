@@ -1,6 +1,8 @@
 @charset "ISO-8859-1";
 
 
+
+
 nav{
 
 	width: 100%;
@@ -34,6 +36,7 @@ nav{
 .submenu{
 	position:absolute;
 	top:60px;
+	left:0;
 	border: 1px solid #f5ba4b;
 	border-bottom: none;
 	visibility: hidden;
@@ -48,9 +51,11 @@ nav{
 }
 
 .submenu li{
-	width:100px;
+	width:100%;
 	font-size:12px;
 	border-bottom: 1px solid #f5ba4b;
+	background-color: #faebd7;
+	
 }
 
 .submenu a{
@@ -61,5 +66,5 @@ nav{
 
 .submenu a:hover{
 	background: #f5ba4b;
-	color: #fff;
+	color: #808080;
 }
