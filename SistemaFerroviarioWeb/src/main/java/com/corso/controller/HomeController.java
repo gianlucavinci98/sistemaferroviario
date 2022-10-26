@@ -14,7 +14,7 @@ import corso.model.Treno;
 @Controller
 public class HomeController {
 	
-	@GetMapping("/")
+	@GetMapping("/home")
 	public String home(HttpSession session)
 	{
 		if(session.getAttribute("utente")!=null)

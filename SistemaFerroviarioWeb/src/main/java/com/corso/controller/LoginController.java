@@ -27,14 +27,14 @@ public class LoginController {
 		
 		
 		if(utente==null) {
-			return "redirect:/";
+			return "redirect:/loginPage";
 		}
 		if(u.getPsw().equals(utente.getPsw())) {
 			session.setAttribute("utente", utente);
 			session.setMaxInactiveInterval(30);
 			return "/home";
 		}else {
-			return "redirect:/";
+			return "redirect:/loginPage";
 			
 		}
 		

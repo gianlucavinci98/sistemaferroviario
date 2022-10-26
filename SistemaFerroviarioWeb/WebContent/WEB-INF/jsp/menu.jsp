@@ -14,7 +14,7 @@
 <body>
 	<nav>
 		<ul class="menu">
-			<li><a href = "#">Home</a></li>
+			<li><a href = "home">Home</a></li>
 			<li class="has-children"><a href = "#">Dipendente</a>
 					<ul class="submenu">
 					<li><a href="allDipendenti">Tutti Dipendenti</a></li>
