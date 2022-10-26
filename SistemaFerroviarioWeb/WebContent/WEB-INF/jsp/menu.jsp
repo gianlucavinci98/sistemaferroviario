@@ -18,7 +18,7 @@
 			<li class="has-children"><a href = "#">Dipendente</a>
 					<ul class="submenu">
 					<li><a href="http://localhost:8080/SistemaFerroviarioWeb/home/dipendente/allDipendenti">Tutti Dipendenti</a></li>
-					<li><a href="#">Funzione2</a></li>
+					<li><a href="http://localhost:8080/SistemaFerroviarioWeb/home/turni/">Turni</a></li>
 					<li><a href="#">Funzione3</a></li>
 					</ul>
 			</li>
