@@ -34,20 +34,19 @@ nav{
 }
 
 .submenu{
+	padding: 0px 0px;
 	position:absolute;
-	top:60px;
-	left:0;
 	border: 1px solid #f5ba4b;
 	border-bottom: none;
 	visibility: hidden;
 	opacity:0;
+	left:0px;
 }
 
 .menu .has-children:hover .submenu{
-	transition: .5s;
+	transition: .1s;
 	visibility: visible;
 	opacity:1;
-	top:60px;
 }
 
 .submenu li{
@@ -55,13 +54,12 @@ nav{
 	font-size:12px;
 	border-bottom: 1px solid #f5ba4b;
 	background-color: #faebd7;
-	
 }
 
 .submenu a{
 	display:block;
 	color: #222;
-	
+	left:0;
 }
 
 .submenu a:hover{
