@@ -1,6 +1,8 @@
 package com.corso.filter;
 
 import java.io.IOException;
+import java.util.Enumeration;
+
 import javax.servlet.Filter;
 import javax.servlet.FilterChain;
 import javax.servlet.FilterConfig;
@@ -18,7 +20,9 @@ import javax.servlet.http.HttpSession;
  */
 @WebFilter("/home/*")
 public class filterLogin extends HttpFilter implements Filter {
- 
+	int numeroRichieste=0;
+	
+	
 	public void destroy() {
 		// TODO Auto-generated method stub
 	}
@@ -29,15 +33,29 @@ public class filterLogin extends HttpFilter implements Filter {
 		HttpServletResponse httpResponse = (HttpServletResponse) response;
 		HttpSession session = httpRequest.getSession();
 		
-		if(session.getAttribute("utente")!=null)
+//		numeroRichieste = numeroRichieste+1;
+//		Enumeration<String> names = httpRequest.getHeaderNames();
+		
+		
+//		while(names.hasMoreElements()) {
+//			String name = names.nextElement();
+//			System.out.println("Valore del Header: " + name + " " + httpRequest.getHeader(name));
+//		}
+		
+//		System.out.println(numeroRichieste + httpRequest.);
+		
+		if(session.getAttribute("utente")!=null) {
+			
 			chain.doFilter(request, response);
-		else
-			httpResponse.sendRedirect("http://localhost:8080/SistemaFerroviarioWeb/loginPage");
+		}
+			
+		else {
+			String URL = "http://localhost:" + httpRequest.getLocalPort()+httpRequest.getContextPath()+"/loginPage";
+			httpResponse.sendRedirect(URL);
+		}
+			
 	}
 
-	/**
-	 * @see Filter#init(FilterConfig)
-	 */
 	public void init(FilterConfig fConfig) throws ServletException {
 		// TODO Auto-generated method stub
 	}
