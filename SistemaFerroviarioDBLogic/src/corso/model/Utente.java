@@ -3,6 +3,8 @@ package corso.model;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 @Entity
@@ -17,7 +19,12 @@ public class Utente {
 	
 	@Column
 	private int livello;
-
+	
+	@OneToOne
+	@JoinColumn(name="idDipendente", referencedColumnName="idDipendente")
+	private Dipendente dipendente;
+	
+	
 	public Utente() {
 	}
 
@@ -51,4 +58,15 @@ public class Utente {
 		this.livello = livello;
 	}
 
+	public Dipendente getDipendente() {
+		return dipendente;
+	}
+
+	public void setDipendente(Dipendente dipendente) {
+		this.dipendente = dipendente;
+	}
+	
+	
+	
+	
 }

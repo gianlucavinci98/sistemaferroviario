@@ -27,6 +27,9 @@ public class Treno {
 	
 	@OneToMany (mappedBy = "treno", fetch = FetchType.EAGER)
 	private List<Viaggio> viaggi = new ArrayList<>();
+	
+	@Column
+	private String sigla;
 
 	public List<Viaggio> getViaggi() {
 		return viaggi;
@@ -75,6 +78,15 @@ public class Treno {
 
 	public void setNumPosti(int numPosti) {
 		this.numPosti = numPosti;
+	}
+	
+
+	public String getSigla() {
+		return sigla;
+	}
+
+	public void setSigla(String sigla) {
+		this.sigla = sigla;
 	}
 
 	@Override
