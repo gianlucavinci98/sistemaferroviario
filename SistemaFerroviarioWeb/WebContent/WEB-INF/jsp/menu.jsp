@@ -14,10 +14,10 @@
 <body>
 	<nav>
 		<ul class="menu">
-			<li><a href = "home">Home</a></li>
+			<li><a href = "http://localhost:8080/SistemaFerroviarioWeb/home">Home</a></li>
 			<li class="has-children"><a href = "#">Dipendente</a>
 					<ul class="submenu">
-					<li><a href="allDipendenti">Tutti Dipendenti</a></li>
+					<li><a href="http://localhost:8080/SistemaFerroviarioWeb/home/dipendente/allDipendenti">Tutti Dipendenti</a></li>
 					<li><a href="#">Funzione2</a></li>
 					<li><a href="#">Funzione3</a></li>
 					</ul>
@@ -33,7 +33,7 @@
 				</ul>
 				
 			</li>
-			<li><a href="logout">Logout</a></li>	
+			<li><a href="http://localhost:8080/SistemaFerroviarioWeb/logout">Logout</a></li>	
 		</ul>
 	</nav>
 </body>

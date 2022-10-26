@@ -17,10 +17,10 @@ public class HomeController {
 	@GetMapping("/home")
 	public String home(HttpSession session)
 	{
-		if(session.getAttribute("utente")!=null)
+		//if(session.getAttribute("utente")!=null)
 		return "home";
-		else
-			return "redirect:/loginPage";
+		//else
+		//	return "redirect:/loginPage";
 	}
 	
 	@GetMapping("/infoTreno")
