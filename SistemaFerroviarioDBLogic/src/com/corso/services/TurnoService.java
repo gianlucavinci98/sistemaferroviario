@@ -25,6 +25,10 @@ public class TurnoService {
 		return turnoDAO.find(id);
 	}
 	
+	public void deleteTurno(Integer id) {
+		turnoDAO.delete(id);
+	}
+	
 	public List<Turno> allTurni() {
 		return turnoDAO.all();
 	}

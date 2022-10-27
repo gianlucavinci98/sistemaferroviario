@@ -13,8 +13,9 @@
 		<%@include file="menu.jsp"%>
 	</div>
 
-	<h1>Aggiungi turno</h1>
+	<h1 align="center">Aggiungi turno</h1>
 
+	<div align="center">
 	<form id=addTurno>
 		ID Dipendente: <input id="idDipendente" name="idDipendente"
 			type="number" /> <br> <br> ID Treno: <input id="idTreno"
@@ -22,9 +23,11 @@
 		(YYYY-MM-DD): <input id="data" name="data" type="text" /> <br> <br>
 		<input type="submit" name="submit" formaction="add" value="Aggiungi">
 	</form>
-
-	<br>
-	<br> ${message}
+	</div>
+	
+	<br><br> 
+	
+	<div align="center">${message}</div>
 
 </body>
 </html>

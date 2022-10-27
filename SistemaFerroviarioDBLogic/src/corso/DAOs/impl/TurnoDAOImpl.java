@@ -7,8 +7,6 @@ import java.util.stream.Collectors;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.persistence.Query;
-import javax.transaction.Transactional;
-
 import corso.DAOs.TurnoDAO;
 import corso.model.Dipendente;
 import corso.model.Treno;
@@ -20,7 +18,6 @@ public class TurnoDAOImpl implements TurnoDAO{
 	private EntityManager manager;
 	
 	@Override
-	@Transactional
 	public void add(Turno turno) {
 		manager.merge(turno);
 	}
@@ -29,6 +26,12 @@ public class TurnoDAOImpl implements TurnoDAO{
 	public Turno find(Integer idTurno) {
 		Turno turno = manager.find(Turno.class, idTurno);
 		return turno;
+	}
+	
+	@Override
+	public void delete(Integer idTurno) {
+		Turno t = find(idTurno);
+		manager.remove(t);
 	}
 	
 	@Override

@@ -1,23 +1,29 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
-<%@ taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
 <!DOCTYPE html>
 
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<title>Lista dei turni</title>
+<title>Gestione dei turni</title>
 </head>
 
+<!-- <style> -->
+<%-- 	<%@include file="homeTurni.css" %> --%>
+<!-- </style> -->
+
 <body>
+
 	<div>
 		<%@include file="menu.jsp"%>
 	</div>
 
-	<h1 align="center">Lista dei turni</h1>
-
+	<h1 align="center">Gestione dei turni</h1>
+	
+	<div align="center">
 	<form id="utilities">
+		<input type="submit" name="submit" formaction="all" value="Visualizza tutti i turni">
 		<input type="submit" name="submit" formaction="formAdd" value="Aggiungi un nuovo turno">
 		<br><br>
 		Cerca turno: <input id="idTurno" name="idTurno"
@@ -39,31 +45,7 @@
 		<input id="data" name="data" type="text" />
 		<input type="submit" name="submit" formaction="findDipendentiByData" value="Cerca">
 	</form>
+	</div>
 
-	<br><br>
-
-	<c:if test="${list.size() > 0}">
-	<table border="2" width="70%" cellpadding="2" align="center">
-		<tr>
-			<th>idTurno</th>
-			<th>idDipendente</th>
-			<th>idTreno</th>
-			<th>Data</th>
-			<!-- <th>Modifica</th> -->
-			<th>Elimina</th>
-		</tr>
-		<c:forEach var="turno" items="${list}">
-			<tr align="center">
-				<td>${turno.idTurno}</td>
-				<td>${turno.dipendente.idDipendente}</td>
-				<td>${turno.treno.idTreno}</td>
-				<td>${turno.dataTurno}</td>
-				<%-- <td><a href="edit/${turno.idTurno}">Modifica</a></td> --%>
-				<td><a href="delete/${turno.idTurno}">Elimina</a></td>
-			</tr>
-		</c:forEach>
-	</table>
-	</c:if>
-	<br />
 </body>
 </html>
