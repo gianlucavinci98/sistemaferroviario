@@ -10,6 +10,10 @@
 <title>Lista dei turni</title>
 </head>
 
+<style>
+	<%@include file="allTurni.css" %>
+</style>
+
 <body>
 	<div>
 		<%@include file="menu.jsp"%>
@@ -43,7 +47,7 @@
 	<br><br>
 
 	<c:if test="${list.size() > 0}">
-	<table border="2" width="70%" cellpadding="2" align="center">
+	<table style="width:100%">
 		<tr>
 			<th>idTurno</th>
 			<th>idDipendente</th>
