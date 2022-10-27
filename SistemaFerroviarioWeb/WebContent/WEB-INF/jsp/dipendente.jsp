@@ -26,7 +26,13 @@
 </c:forEach>
 
 </table>
-
+<br><br>
+<br><br>
+<br><br>
+<form  align="center">
+ID: <input type="text" name="id" class="ceckboxricerca">
+<input type="submit" name="submit" formaction="moreDipendenti" value="cerca">
+</form>
 
 </div>
 

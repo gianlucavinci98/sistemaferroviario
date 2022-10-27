@@ -1,5 +1,6 @@
 package com.corso.services;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.BeanFactory;
@@ -26,6 +27,18 @@ public class DipendenteService {
 		DipendenteDAO dao=  factory.getBean("dipendenteDAO", DipendenteDAO.class);
 		Dipendente d=dao.findDipendente(id);
 		return d;
+	}
+	
+	public List<Dipendente> getFindMoreDipendente(List<Integer> id) {
+		@SuppressWarnings("resource")
+		BeanFactory factory = new AnnotationConfigApplicationContext(Beans.class);
+		DipendenteDAO dao=  factory.getBean("dipendenteDAO", DipendenteDAO.class);
+		List<Dipendente> list= new ArrayList<>();
+		for(Integer i : id) {
+		Dipendente d=dao.findDipendente(i);
+		list.add(d);
+		}
+		return list;
 	}
 
 	
