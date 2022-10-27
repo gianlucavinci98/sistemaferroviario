@@ -28,8 +28,8 @@
 					<c:if test="${sessionScope.utente.livello>1}">
 						<li><a href="#">Costruisci Treno</a></li>
 					</c:if>
-					<li><a href="#">Funzione2</a></li>
-					<li><a href="#">Funzione3</a></li>
+					<li><a href="http://localhost:8080/SistemaFerroviarioWeb/home/treno/infoTreno">Info Treno</a></li>
+					<li><a href="http://localhost:8080/SistemaFerroviarioWeb/home/treno/formAddTreno">Aggiungi Treno</a></li>
 				</ul>
 				
 			</li>

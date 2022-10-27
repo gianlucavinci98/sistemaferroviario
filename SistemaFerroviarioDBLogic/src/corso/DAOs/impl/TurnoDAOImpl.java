@@ -2,6 +2,7 @@ package corso.DAOs.impl;
 
 import java.time.LocalDate;
 import java.util.List;
+import java.util.stream.Collectors;
 
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
@@ -46,10 +47,10 @@ public class TurnoDAOImpl implements TurnoDAO{
 		Query q = manager.createQuery(jpql, Turno.class);
 		q.setParameter("dipendente", dipendente);
 		@SuppressWarnings("unchecked")
-		List<Treno> l = q.getResultList().stream().map((Object o) -> {
+		List<Treno> l = (List<Treno>) q.getResultList().stream().map((Object o) -> {
 															Turno t = (Turno) o;
 															return t.getTreno();
-														}).distinct().toList();
+														}).distinct().collect(Collectors.toList());
 		return l;
 	}
 
@@ -75,10 +76,10 @@ public class TurnoDAOImpl implements TurnoDAO{
 		Query q = manager.createQuery(jpql, Turno.class);
 		q.setParameter("treno", treno);
 		@SuppressWarnings("unchecked")
-		List<Dipendente> l = q.getResultList().stream().map((Object o) -> {
+		List<Dipendente> l = (List<Dipendente>) q.getResultList().stream().map((Object o) -> {
 																Turno t = (Turno) o;
 																return t.getDipendente();
-															}).distinct().toList();
+															}).distinct().collect(Collectors.toList());
 		return l;
 	}
 
