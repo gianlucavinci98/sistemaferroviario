@@ -11,11 +11,13 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import com.corso.services.DipendenteService;
+import com.corso.services.LoginService;
 import com.corso.services.TrenoService;
 import com.corso.services.TurnoService;
 
 import corso.model.Dipendente;
 import corso.model.Turno;
+import corso.model.Utente;
 
 
 @Controller
@@ -103,4 +105,23 @@ public class DipendenteController {
 		return "formAddDipendente";
 
 	}
+	
+
+	@GetMapping("/associaUteDip")
+	public String assUt() {
+		return "associaUtenteDip";
+	}
+	
+	
+	@GetMapping("/associaDipendente")
+	public String assDip(@RequestParam String user,@RequestParam Integer id, Model m) {
+		LoginService ls= new LoginService();
+		Utente u= ls.getUser(user);
+		DipendenteService ds= new DipendenteService();
+		Dipendente d= ds.getFindDipendente(id);
+		ls.addDipendInUtente(u, d);
+		m.addAttribute("message", "Associazione avvenuta con successo!");
+		return "associaUtenteDip";
+	}
+	
 }

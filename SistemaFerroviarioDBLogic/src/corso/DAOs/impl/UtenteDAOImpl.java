@@ -5,6 +5,7 @@ import javax.persistence.PersistenceContext;
 import javax.transaction.Transactional;
 
 import corso.DAOs.UtenteDAO;
+import corso.model.Dipendente;
 import corso.model.Utente;
 
 
@@ -26,5 +27,13 @@ public class UtenteDAOImpl implements UtenteDAO{
 		u.setPsw(psw);
 		manager.merge(u);
 	}
+	
+	@Override
+	@Transactional
+	public void addUserDip(Utente u, Dipendente d) {
+		 u.setDipendente(d);
+		 manager.merge(u);
+	}
+	
 
 }
