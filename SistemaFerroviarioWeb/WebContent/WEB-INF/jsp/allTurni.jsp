@@ -11,7 +11,7 @@
 </head>
 
 <style>
-	<%@include file="allTurni.css" %>
+	<%@include file="tabella.css" %>
 </style>
 
 <body>
@@ -20,54 +20,53 @@
 	</div>
 
 	<h1 align="center">Lista dei turni</h1>
-
-	<form id="utilities">
-		<input type="submit" name="submit" formaction="formAdd" value="Aggiungi un nuovo turno">
-		<br><br>
-		Cerca turno: <input id="idTurno" name="idTurno"
-			type="number" /> <input type="submit" name="submit" formaction="find" value="Cerca">
-		<br><br>
-		Cerca i treni in cui ha lavorato il dipendente: <input id="idDipendente" name="idDipendente"
-			type="number" /> <input type="submit" name="submit" formaction="findTreniByDipendente" 
-			value="Cerca">
-		<br><br>
-		Cerca i dipendenti che hanno lavorato più di un certo numero di turni: 
-		<input id="x" name="x" type="number" />
-		<input type="submit" name="submit" formaction="findDipendentiByXTurni" value="Cerca">
-		<br><br>
-		Cerca i dipendenti che hanno lavorato su uno specifico treno: 
-		<input id="idTreno" name="idTreno" type="number" />
-		<input type="submit" name="submit" formaction="findDipendentiByTreno" value="Cerca">
-		<br><br>
-		Cerca i dipendenti che hanno lavorato in una certa data: 
-		<input id="data" name="data" type="text" />
-		<input type="submit" name="submit" formaction="findDipendentiByData" value="Cerca">
-	</form>
-
+	
+	<c:if test="${sessionScope.utente.livello > 1}">
+		<form id="utilities">
+			<input type="submit" name="submit" formaction="formAdd" value="Aggiungi un nuovo turno">
+			<br><br>
+			Cerca turno: <input id="idTurno" name="idTurno"
+				type="number" /> <input type="submit" name="submit" formaction="find" value="Cerca">
+			<br><br>
+			Cerca i treni in cui ha lavorato il dipendente: <input id="idDipendente" name="idDipendente"
+				type="number" /> <input type="submit" name="submit" formaction="findTreniByDipendente" 
+				value="Cerca">
+			<br><br>
+			Cerca i dipendenti che hanno lavorato sul treno: 
+			<input id="idTreno" name="idTreno" type="number" />
+			<input type="submit" name="submit" formaction="findDipendentiByTreno" value="Cerca">
+			<br><br>
+			Cerca i dipendenti che hanno lavorato in data: 
+			<input id="data" name="data" type="text" />
+			<input type="submit" name="submit" formaction="findDipendentiByData" value="Cerca">
+		</form>
+	</c:if>
+	
 	<br><br>
 
 	<c:if test="${list.size() > 0}">
-	<table style="width:100%">
-		<tr>
-			<th>idTurno</th>
-			<th>idDipendente</th>
-			<th>idTreno</th>
-			<th>Data</th>
-			<!-- <th>Modifica</th> -->
-			<th>Elimina</th>
-		</tr>
-		<c:forEach var="turno" items="${list}">
-			<tr align="center">
-				<td>${turno.idTurno}</td>
-				<td>${turno.dipendente.idDipendente}</td>
-				<td>${turno.treno.idTreno}</td>
-				<td>${turno.dataTurno}</td>
-				<%-- <td><a href="edit/${turno.idTurno}">Modifica</a></td> --%>
-				<td><a href="delete/${turno.idTurno}">Elimina</a></td>
+		<table style="width: 100%">
+			<tr>
+				<th>idTurno</th>
+				<th>idDipendente</th>
+				<th>idTreno</th>
+				<th>Data</th>
+				<c:if test="${sessionScope.utente.livello > 1}">
+					<th>Elimina</th>
+				</c:if>
 			</tr>
-		</c:forEach>
-	</table>
+			<c:forEach var="turno" items="${list}">
+				<tr align="center">
+					<td>${turno.idTurno}</td>
+					<td>${turno.dipendente.idDipendente}</td>
+					<td>${turno.treno.idTreno}</td>
+					<td>${turno.dataTurno}</td>
+					<c:if test="${sessionScope.utente.livello > 1}">
+						<td><a href="delete/${turno.idTurno}">Elimina</a></td>
+					</c:if>
+				</tr>
+			</c:forEach>
+		</table>
 	</c:if>
-	<br />
 </body>
 </html>

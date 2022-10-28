@@ -34,22 +34,12 @@ public class TestTurno {
 		System.out.println();
 		
 		// Test findDipendenteByData()
-		LocalDate data = LocalDate.now();
+		LocalDate data = LocalDate.parse("2022-10-30");
 		
 		List<Dipendente> dipendenti = turnoDAO.findDipendentiByData(data);
 		
 		System.out.println("Dipendenti che hanno lavorato in data " + data + ":");
 		for (Dipendente d : dipendenti) {
-			System.out.println(d);
-		}
-		System.out.println();
-		
-		// Test findDipendentiByXTurni
-		Long x = (long) 2;
-		dipendenti = turnoDAO.findDipendentiByXTurni(x);
-		
-		System.out.println("Dipendenti che hanno lavorato piu' di " + x + " turni:");
-		for (Dipendente d: dipendenti) {
 			System.out.println(d);
 		}
 		System.out.println();

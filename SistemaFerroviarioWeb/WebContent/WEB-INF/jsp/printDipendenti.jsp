@@ -1,25 +1,27 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
-<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
+<%@ taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html>
 
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<title>Gestione dei turni</title>
+<title>Lista dei dipendenti</title>
 </head>
 
-<body>
+<style>
+	<%@include file="tabella.css" %>
+</style>
 
+<body>
 	<div>
 		<%@include file="menu.jsp"%>
 	</div>
 
-	<h1 align="center">Gestione dei turni</h1>
-	
-	<div align="center">
+	<h1 align="center">Lista dei dipendenti</h1>
+
 	<form id="utilities">
-		<input type="submit" name="submit" formaction="all" value="Visualizza tutti i turni">
 		<input type="submit" name="submit" formaction="formAdd" value="Aggiungi un nuovo turno">
 		<br><br>
 		Cerca turno: <input id="idTurno" name="idTurno"
@@ -37,7 +39,26 @@
 		<input id="data" name="data" type="text" />
 		<input type="submit" name="submit" formaction="findDipendentiByData" value="Cerca">
 	</form>
-	</div>
 
+	<br><br>
+
+	<c:if test="${list.size() > 0}">
+	<table style="width:100%">
+		<tr>
+			<th>idDipendente</th>
+			<th>Nome</th>
+			<th>Cognome</th>
+			<th>Ruolo</th>
+		</tr>
+		<c:forEach var="dipendente" items="${list}">
+			<tr align="center">
+				<td>${dipendente.idDipendente}</td>
+				<td>${dipendente.nome}</td>
+				<td>${dipendente.cognome}</td>
+				<td>${dipendente.ruolo}</td>
+			</tr>
+		</c:forEach>
+	</table>
+	</c:if>
 </body>
 </html>

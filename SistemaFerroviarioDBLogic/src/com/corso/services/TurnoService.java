@@ -33,12 +33,12 @@ public class TurnoService {
 		return turnoDAO.all();
 	}
 	
-	public List<Treno> findTreniByDipendente(Dipendente d) {
-		return turnoDAO.findTreniByDipendente(d);
+	public List<Turno> findByDipendente(Dipendente dipendente) {
+		return turnoDAO.findByDipendente(dipendente);
 	}
 	
-	public List<Dipendente> findDipendentiByXTurni(Long x) {
-		return turnoDAO.findDipendentiByXTurni(x);
+	public List<Treno> findTreniByDipendente(Dipendente d) {
+		return turnoDAO.findTreniByDipendente(d);
 	}
 	
 	public List<Dipendente> findDipendentiByTreno(Treno treno) {

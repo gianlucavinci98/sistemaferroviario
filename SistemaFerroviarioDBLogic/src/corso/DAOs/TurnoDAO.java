@@ -16,8 +16,8 @@ public interface TurnoDAO {
 	public Turno find(Integer idTurno);
 	public void delete(Integer idTurno);
 	public List<Turno> all();
+	public List<Turno> findByDipendente(Dipendente dipendente);
 	public List<Treno> findTreniByDipendente(Dipendente dipendente);
-	public List<Dipendente> findDipendentiByXTurni(Long x); 
 	public List<Dipendente> findDipendentiByTreno(Treno treno);
 	public List<Dipendente> findDipendentiByData(LocalDate data);
 	

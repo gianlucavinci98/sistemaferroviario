@@ -4,6 +4,8 @@ import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.servlet.http.HttpSession;
+
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -15,7 +17,10 @@ import com.corso.services.DipendenteService;
 import com.corso.services.TrenoService;
 import com.corso.services.TurnoService;
 
+import corso.model.Dipendente;
+import corso.model.Treno;
 import corso.model.Turno;
+import corso.model.Utente;
 
 @Controller
 @RequestMapping("/home/turni")
@@ -24,6 +29,17 @@ public class TurnoController {
 	@GetMapping("/")
 	public String home() {
 		return "homeTurni";
+	}
+	
+	@GetMapping("/myTurni")
+	public String myTurni(HttpSession session, Model m) {
+		TurnoService turnoService = new TurnoService();
+		DipendenteService dipService = new DipendenteService();
+		Utente u = (Utente) session.getAttribute("utente");
+		List<Turno> list = turnoService.findByDipendente(dipService.
+				getFindDipendente(u.getDipendente().getIdDipendente()));
+		m.addAttribute("list", list);
+		return "allTurni";
 	}
 	
 	@GetMapping("/all")
@@ -35,7 +51,7 @@ public class TurnoController {
 	}
 	
 	@GetMapping("/formAdd")
-	public String formAddTurno(Model m) {
+	public String formAddTurno() {
 		return "formAddTurno";
 	}
 	
@@ -75,6 +91,33 @@ public class TurnoController {
 		
 		m.addAttribute("list", list);
 		return "allTurni";
+	}
+	
+	@GetMapping("/findTreniByDipendente")
+	public String findTreniByDipendente(@RequestParam Integer idDipendente, Model m) {
+		DipendenteService dipService = new DipendenteService();
+		TurnoService turnoService = new TurnoService();
+		List<Treno> list = turnoService.findTreniByDipendente(dipService.getFindDipendente(idDipendente));
+		m.addAttribute("list", list);
+		return "printTreni";
+	}
+	
+	@GetMapping("/findDipendentiByTreno")
+	public String findDipendentiByTreno(@RequestParam Integer idTreno, Model m) {
+		TrenoService trenoService = new TrenoService();
+		TurnoService turnoService = new TurnoService();
+		List<Dipendente> list = turnoService.findDipendentiByTreno(trenoService.findTreno(idTreno));
+		m.addAttribute("list", list);
+		return "printDipendenti";
+	}
+	
+	@GetMapping("/findDipendentiByData")
+	public String findDipendentiByData(@RequestParam String data, Model m) {
+		TurnoService service = new TurnoService();
+		LocalDate dataTurno = LocalDate.parse(data);
+		List<Dipendente> list = service.findDipendentiByData(dataTurno);
+		m.addAttribute("list", list);
+		return "printDipendenti";
 	}
 	
 }

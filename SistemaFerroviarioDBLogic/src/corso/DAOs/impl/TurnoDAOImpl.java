@@ -12,7 +12,7 @@ import corso.model.Dipendente;
 import corso.model.Treno;
 import corso.model.Turno;
 
-public class TurnoDAOImpl implements TurnoDAO{
+public class TurnoDAOImpl implements TurnoDAO {
 	
 	@PersistenceContext
 	private EntityManager manager;
@@ -43,6 +43,18 @@ public class TurnoDAOImpl implements TurnoDAO{
 	}
 	
 	@Override
+	public List<Turno> findByDipendente(Dipendente dipendente) {
+		String jpql = "FROM Turno " +
+				  	  "WHERE dipendente = :dipendente";
+		
+		Query q = manager.createQuery(jpql, Turno.class);
+		q.setParameter("dipendente", dipendente);
+		@SuppressWarnings("unchecked")
+		List<Turno> l = q.getResultList();
+		return l;
+	}
+	
+	@Override
 	public List<Treno> findTreniByDipendente(Dipendente dipendente) {
 		String jpql = "FROM Turno " +
 					  "WHERE dipendente = :dipendente";
@@ -54,20 +66,6 @@ public class TurnoDAOImpl implements TurnoDAO{
 															Turno t = (Turno) o;
 															return t.getTreno();
 														}).distinct().collect(Collectors.toList());
-		return l;
-	}
-
-	@Override
-	public List<Dipendente> findDipendentiByXTurni(Long x) {
-		String jpql = "SELECT dipendente " +
-				  	  "FROM Turno " +
-				  	  "GROUP BY Dipendente " +
-				  	  "HAVING COUNT(*) > :x";
-		
-		Query q = manager.createQuery(jpql, Dipendente.class);
-		q.setParameter("x", x);
-		@SuppressWarnings("unchecked")
-		List<Dipendente> l = q.getResultList();
 		return l;
 	}
 

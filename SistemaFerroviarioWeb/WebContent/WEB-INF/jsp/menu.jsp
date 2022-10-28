@@ -18,9 +18,14 @@
 			<li class="has-children"><a href = "#">Dipendente</a>
 					<ul class="submenu">
 					<c:if test="${sessionScope.utente.livello<2}">
-					<li><a href="/SistemaFerroviarioWeb/home/dipendente/allDipendenti">Tutti Dipendenti</a></li>
+						<li><a href="/SistemaFerroviarioWeb/home/dipendente/allDipendenti">Tutti i Dipendenti</a></li>
 					</c:if>
-					<li><a href="/SistemaFerroviarioWeb/home/turni/">Turni</a></li>
+					<c:if test="${sessionScope.utente.livello>1}">
+						<li><a href="/SistemaFerroviarioWeb/home/turni/">Gestisci Turni</a></li>
+					</c:if>
+					<c:if test="${sessionScope.utente.livello<2}">
+						<li><a href="/SistemaFerroviarioWeb/home/turni/myTurni">I miei Turni</a></li>
+					</c:if>
 					<c:if test="${sessionScope.utente.livello>1}">
 						<li><a href="/SistemaFerroviarioWeb/home/dipendente/allDipendentiAdmin">Gestisci Dipendenti</a></li>
 					</c:if>
