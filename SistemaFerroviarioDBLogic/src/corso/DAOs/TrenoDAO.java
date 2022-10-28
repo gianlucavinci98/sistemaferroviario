@@ -9,7 +9,7 @@ import corso.model.Viaggio;
 public interface TrenoDAO {
 	
 	public Treno find(int idTreno);	
-	public void add(Treno treno);	
+	public void add(String sequenza);	
 	public List<Treno> listAll();
 	public List<Treno> findByTipo(String tipo);
 	public List<Viaggio> getViaggiByTreno(int idTreno);

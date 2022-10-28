@@ -2,7 +2,7 @@ package com.corso.builder;
 
 public class Locomotiva extends Vagone {
 	private static String nome="Locomotiva";
-	private static double peso=4000;
+	private static int peso=4000;
 	private static double lunghezza=21;
 	private static int potenza=44;
 		

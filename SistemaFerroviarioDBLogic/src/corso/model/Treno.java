@@ -23,6 +23,9 @@ public class Treno {
 	private String tipo;
 	
 	@Column
+	private int peso;
+	
+	@Column
 	private double velocita;
 	
 	@Column
@@ -92,10 +95,20 @@ public class Treno {
 		this.sigla = sigla;
 	}
 
+	public int getPeso() {
+		return peso;
+	}
+
+	public void setPeso(int peso) {
+		this.peso = peso;
+	}
+
 	@Override
 	public String toString() {
 		return "Treno [idTreno=" + idTreno + ", tipo=" + tipo + ", velocita=" + velocita + ", numPosti=" + numPosti
-				+ "]";
+				+ ", viaggi=" + viaggi + ", sigla=" + sigla + "]";
 	}
+
+
 	
 }

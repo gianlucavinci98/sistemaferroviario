@@ -17,8 +17,8 @@ public class TrenoService {
 		return daoTreno.find(idTreno);
 	}
 
-	public void addTreno(Treno treno)
-	{
-		daoTreno.add(treno);
-	}
+//	public void addTreno(String sequenza)
+//	{
+//		daoTreno.add(treno);
+//	}
 }

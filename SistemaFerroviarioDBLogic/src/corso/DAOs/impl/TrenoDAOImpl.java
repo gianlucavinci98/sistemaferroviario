@@ -4,6 +4,9 @@ import java.util.List;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.persistence.Query;
+
+import com.corso.builder.TrenoBuilder.Builder;
+
 import corso.DAOs.TrenoDAO;
 import corso.model.Treno;
 import corso.model.Viaggio;
@@ -22,8 +25,12 @@ public class TrenoDAOImpl implements TrenoDAO{
 	}
 	
 	@Override
-	public void add(Treno treno)
+	public void add(String sequenza)
 	{
+		Builder tb = new Builder();
+		
+		Treno treno = tb.build(sequenza);
+		//Treno treno = Builder(stringa);
 		manager.persist(treno);
 	}
 	

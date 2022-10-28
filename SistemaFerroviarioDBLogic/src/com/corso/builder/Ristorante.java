@@ -3,7 +3,7 @@ package com.corso.builder;
 public class Ristorante extends Vagone{
 
 	private static String nome="VagoneRistorante";
-	private static double peso=3000;
+	private static int peso=3000;
 	private static double lunghezza=11;
 	private static int nPiatti=4;
 	

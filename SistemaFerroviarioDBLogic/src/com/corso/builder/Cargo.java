@@ -3,7 +3,7 @@ package com.corso.builder;
 public class Cargo extends Vagone {
 
 	private static String nome="Vagone Cargo";
-	private static double peso=1000;;
+	private static int peso=1000;;
 	private static double lunghezza=6;
 	private static double pesoTrasportabile=1;
 	

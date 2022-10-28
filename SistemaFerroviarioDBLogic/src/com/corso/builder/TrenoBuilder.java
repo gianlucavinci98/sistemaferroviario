@@ -3,19 +3,23 @@ package com.corso.builder;
 import java.util.ArrayList;
 import java.util.List;
 
+import corso.model.Treno;
+
 public class TrenoBuilder {
 	
-	private List<Vagone> treno = new ArrayList<>();
+	private List<Vagone> vagoni = new ArrayList<>();
+
 	
 	private TrenoBuilder() {}
 	
 	public void addVagone(Vagone vagone) {
-		treno.add(vagone);
+		vagoni.add(vagone);
 	}
+	
 	
 	public String show() {
 		String s="Lista vagoni:";
-		for(Vagone v : treno) {
+		for(Vagone v : vagoni) {
 			s=s+"\n"+v.toString();
 		}
 		return s;
@@ -25,27 +29,44 @@ public class TrenoBuilder {
 	
 	public static class Builder{
 		
-		public TrenoBuilder build(String sequenza) {
+		public Treno build(String sequenza) {
 			TrenoBuilder t = new TrenoBuilder();
+			int peso=0;
+			int numeroPosti = 0;
 			
 			for(int i=0;i<sequenza.length();i++) {
 				switch(sequenza.charAt(i)) {
 				case 'H':
-					t.addVagone(new Locomotiva());
+					Locomotiva l = new Locomotiva();
+					t.addVagone(l);
+					peso = peso + l.getPeso();
 				break;
 				case 'C':
-					t.addVagone(new Cargo());
+					Cargo c = new Cargo();
+					t.addVagone(c);
+					peso=peso + c.getPeso();
 				break;
 				case 'P':
-					t.addVagone(new Passeggeri());
+					Passeggeri p = new Passeggeri();
+					t.addVagone(p);
+					peso=peso + p.getPeso();
+					numeroPosti = numeroPosti + p.getnPasseggeri();
 				break;
 				case 'R':
-					t.addVagone(new Ristorante());
+					Ristorante r = new Ristorante();
+					t.addVagone(r);
+					peso = peso + r.getPeso();
 				break;
 				
 				}
 			}
-			return t;
+			
+			Treno treno = new Treno();
+			treno.setNumPosti(numeroPosti);
+			treno.setPeso(peso);
+			treno.setSigla(sequenza);
+			
+			return treno;
 			
 			
 		}
