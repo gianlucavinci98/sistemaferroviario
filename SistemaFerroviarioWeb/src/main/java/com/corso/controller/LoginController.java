@@ -37,7 +37,7 @@ public class LoginController {
 		}
 		if(u.getPsw().equals(utente.getPsw())) {
 			session.setAttribute("utente", utente);
-			session.setMaxInactiveInterval(180);
+		//	session.setMaxInactiveInterval(180);
 			return "/home";
 		}else {
 			return "redirect:/loginPage";

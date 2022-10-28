@@ -6,13 +6,12 @@
 <html>
 <head>
 <title>Home</title>
-
+<style> <%@ include file="../../resources/css/menu.css" %></style>
 
 </head>
 <body>
 <div>
 	<%@ include file="menu.jsp" %>
-	
 </div>
 <!--  
   <%

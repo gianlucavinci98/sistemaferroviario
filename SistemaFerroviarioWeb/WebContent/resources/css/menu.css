@@ -4,10 +4,10 @@
 
 
 nav{
-
 	width: 100%;
 	background-color: #f5ba4b;
 	box-shadow: 5px 5px 10px 2px #333333;
+	margin:auto;
 }
 
 .menu {

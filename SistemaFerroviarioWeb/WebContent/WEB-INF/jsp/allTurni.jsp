@@ -6,13 +6,12 @@
 
 <html>
 <head>
+	<link  rel="stylesheet" type="text/css" href="../../resources/css/tabella.css"/>
+
 <meta charset="ISO-8859-1">
 <title>Lista dei turni</title>
 </head>
 
-<style>
-	<%@include file="tabella.css" %>
-</style>
 
 <body>
 	<div>
@@ -45,7 +44,7 @@
 	<br><br>
 
 	<c:if test="${list.size() > 0}">
-		<table style="width: 100%">
+		<table>
 			<tr>
 				<th>idTurno</th>
 				<th>idDipendente</th>

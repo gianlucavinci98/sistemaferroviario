@@ -6,13 +6,11 @@
 
 <html>
 <head>
+<link rel="stylesheet" type="text/css" href="resources/css/tabella.css"/>
 <meta charset="ISO-8859-1">
 <title>Lista dei treni</title>
 </head>
 
-<style>
-	<%@include file="tabella.css" %>
-</style>
 
 <body>
 	<div>

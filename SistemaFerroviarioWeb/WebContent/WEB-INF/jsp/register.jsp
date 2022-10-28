@@ -5,16 +5,7 @@
 
 <html>
 <head>
-
-   <style>
-	<%@include file="LoginPage.css" %>
-</style>
-
-
-
-
-
-
+	<link rel="stylesheet" type="text/css" href="resources/css/LoginPage.css"/>
 <meta charset="ISO-8859-1">
 <title>Insert title here</title>
 </head>

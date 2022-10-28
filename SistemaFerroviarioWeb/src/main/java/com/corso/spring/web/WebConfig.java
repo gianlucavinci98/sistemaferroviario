@@ -5,12 +5,14 @@ import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.web.servlet.ViewResolver;
 import org.springframework.web.servlet.config.annotation.EnableWebMvc;
+import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry;
+import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 import org.springframework.web.servlet.view.InternalResourceViewResolver;
 
 @Configuration // qui si creano i bean per Spring core
 @EnableWebMvc  // indica che è una applicazioen web
 @ComponentScan(basePackages={"com.corso.controller"})
-public class WebConfig {
+public class WebConfig implements WebMvcConfigurer{
 
 	@Bean
 	public ViewResolver viewResolver() {
@@ -18,6 +20,12 @@ public class WebConfig {
 		resolver.setPrefix("/WEB-INF/jsp/");
 		resolver.setSuffix(".jsp"); 
 		return resolver; 
+	}
+	
+	
+	@Override
+	public void addResourceHandlers(ResourceHandlerRegistry registry) {
+		registry.addResourceHandler("/resources/**").addResourceLocations("/resources/");
 	}
 	
 }

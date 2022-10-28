@@ -1,0 +1,19 @@
+@charset "ISO-8859-1";
+
+td {
+  border: 1px solid black;
+  border-radius: 10px;
+  background-color: #f5ba4b;
+}
+
+th{
+  border: 1px solid black;
+  border-radius: 10px;
+  background-color: #fff;
+  color: #222;
+}
+
+table{
+	width:75%;
+	margin:auto;
+}

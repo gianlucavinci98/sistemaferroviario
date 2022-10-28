@@ -3,14 +3,13 @@
 <!DOCTYPE html>
 <html>
 <head>
-
-<style>
-	<%@include file="menu.css" %>
-</style>
-
+	<link href="<c:url value="../../resources/css/menu.css" />" rel="stylesheet">
+	
 <meta charset="ISO-8859-1">
 <title>Insert title here</title>
 </head>
+
+
 <body>
 	<nav>
 		<ul class="menu">

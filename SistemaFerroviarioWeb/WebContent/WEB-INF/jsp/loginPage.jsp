@@ -7,12 +7,11 @@
 <!DOCTYPE html>
 <html>
 <head>
+	<link rel="stylesheet" type="text/css" href="resources/css/LoginPage.css"/>
 <meta charset="ISO-8859-1">
 <title>LoginPage</title>
 </head>
-<style>
-	<%@include file="LoginPage.css" %>
-</style>
+	
 <body>
 
 
