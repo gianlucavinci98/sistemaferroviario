@@ -38,7 +38,7 @@ public class TrenoController {
 	public String addTreno(Model m, @ModelAttribute("treno") Treno treno)
 	{
 		TrenoService tService = new TrenoService();
-		tService.addTreno(treno);
+		//tService.addTreno(treno);
 		m.addAttribute("messaggio", "Treno inserito con successo!");
 		return "formAddTreno";
 	}

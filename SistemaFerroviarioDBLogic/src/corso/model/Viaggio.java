@@ -32,6 +32,14 @@ public class Viaggio {
 	
 	@Column
 	private Date dataViaggio;
+	
+	@Column
+	private double voto;
+	
+	@Column
+	private int nvoti;
+
+	
 
 	public Viaggio() {
 	}
@@ -87,9 +95,24 @@ public class Viaggio {
 	@Override
 	public String toString() {
 		return "[idViaggio=" + idViaggio + ", partenza=" + partenza.getNomeStazione() + ", arrivo=" + arrivo.getNomeStazione() + ", idTreno=" + treno.getIdTreno()
-				+ ", dataViaggio=" + dataViaggio + "]";
+				+ ", dataViaggio=" + dataViaggio + ", voto="+ voto+ "]";
+	}
+
+	public double getVoto() {
+		return voto;
+	}
+
+	public void setVoto(double voto) {
+		this.voto = voto;
 	}
 
 
+	public int getNvoti() {
+		return nvoti;
+	}
+
+	public void setNvoti() {
+		this.nvoti = this.nvoti+1;
+	}
 
 }

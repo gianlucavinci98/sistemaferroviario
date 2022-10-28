@@ -1,10 +1,16 @@
 package corso.DAOs.impl;
 
+import java.util.List;
+
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.persistence.Query;
+import javax.transaction.Transactional;
+
 import corso.DAOs.ViaggioDAO;
+import corso.model.Dipendente;
 import corso.model.Stazione;
+import corso.model.Viaggio;
 
 public class ViaggioDAOImpl implements ViaggioDAO{
 	
@@ -26,5 +32,16 @@ public class ViaggioDAOImpl implements ViaggioDAO{
 	    q.setParameter("viaggio", idViaggio);
 	    return (Stazione) q.getSingleResult();
 	}
+
+	@Override
+	public List<Viaggio> allViaggi() {
+		String jpql = "from Viaggio";  
+	    Query q =  manager.createQuery(jpql,Viaggio.class);
+		@SuppressWarnings("unchecked")
+		List<Viaggio> l = q.getResultList();
+		return l;
+	}
+
+	
 
 }

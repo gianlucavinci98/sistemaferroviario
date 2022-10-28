@@ -3,6 +3,7 @@ package corso.spring;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.Scope;
 
 import corso.DAOs.DipendenteDAO;
 import corso.DAOs.StazioneDAO;
@@ -30,7 +31,7 @@ public class Beans extends BeansConfig{
 		return dao; 
 	}
 	
-	@Bean(name="stazioneDAO") 
+	@Bean(name="stazioneDAO")
 	public StazioneDAO getStazioneDAO (){
 		StazioneDAO dao = new StazioneDAOImpl();
 		return dao; 
