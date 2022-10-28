@@ -6,6 +6,11 @@
 <meta charset="ISO-8859-1">
 <title>Treno</title>
 </head>
+
+<style>
+	<%@include file="allTurni.css" %>
+</style>
+
 <body>
 
 	ID treno: ${result.idTreno} <br>
@@ -20,7 +25,7 @@
 	<br><br>
 
 	<c:if test="${result.viaggi.size() > 0}">
-	<table style="width:100%">
+	<table id="tabella" style="visibility:hidden; width:100%">
 		<tr>
 			<th>Codice Viaggio</th>
 			<th>Partenza</th>
@@ -30,13 +35,19 @@
 		<c:forEach var="viaggio" items="${result.viaggi}">
 			<tr align="center">
 				<td>${viaggio.idViaggio}</td>
-				<td>${viaggio.partenza}</td>
-				<td>${viaggio.arrivo}</td>
+				<td>${viaggio.partenza.nomeStazione}, ${viaggio.partenza.citta}</td>
+				<td>${viaggio.arrivo.nomeStazione}, ${viaggio.arrivo.citta}</td>
 				<td>${viaggio.dataViaggio}</td>
 			</tr>
 		</c:forEach>
 	</table>
 	</c:if>
-	
+
+	<script type="text/javascript">
+		function caricaViaggi() {
+			document.getElementById("tabella").style.visibility = "visible";
+		}
+	</script>
+
 </body>
 </html>
