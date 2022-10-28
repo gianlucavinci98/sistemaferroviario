@@ -17,7 +17,9 @@
 			<li><a href = "/SistemaFerroviarioWeb/home">Home</a></li>
 			<li class="has-children"><a href = "#">Dipendente</a>
 					<ul class="submenu">
+					<c:if test="${sessionScope.utente.livello<2}">
 					<li><a href="/SistemaFerroviarioWeb/home/dipendente/allDipendenti">Tutti Dipendenti</a></li>
+					</c:if>
 					<li><a href="/SistemaFerroviarioWeb/home/turni/">Turni</a></li>
 					<c:if test="${sessionScope.utente.livello>1}">
 						<li><a href="/SistemaFerroviarioWeb/home/dipendente/allDipendentiAdmin">Gestisci Dipendenti</a></li>
