@@ -19,7 +19,9 @@
 					<ul class="submenu">
 					<li><a href="http://localhost:8080/SistemaFerroviarioWeb/home/dipendente/allDipendenti">Tutti Dipendenti</a></li>
 					<li><a href="http://localhost:8080/SistemaFerroviarioWeb/home/turni/">Turni</a></li>
-					<li><a href="#">Funzione3</a></li>
+					<c:if test="${sessionScope.utente.livello>1}">
+						<li><a href="http://localhost:8080/SistemaFerroviarioWeb/home/dipendente/allDipendentiAdmin">Gestisci Dipendenti</a></li>
+					</c:if>
 					</ul>
 			</li>
 			<li><a href = "#">Viaggio</a></li>
