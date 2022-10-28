@@ -28,17 +28,26 @@
 </c:forEach>
 
 </table>
+</div>
+<br><br>
+<div align="center">
+<form >
+<input type="submit" name="submit" formaction="addDip" value="Aggiungi dipendente">
+</form>
+</div>
 <br><br>
 <br><br>
-<br><br>
-<form  align="center">
+<div align="center">
+<form  >
 ID: <input type="text" name="id" >
 <input type="submit" name="submit" formaction="moreDipendentiAdmin" value="cerca">
 </form>
+</div>
 <br><br>
-<form  align="center">
+<div align="center">
+<form  >
 Ruolo: <input type="text" name="ruolo">
-<input type="submit" name="submit" formaction="dipendentiForRuoloAdmin"" value="cerca">
+<input type="submit" name="submit" formaction="dipendentiForRuoloAdmin" value="cerca">
 </form>
 </div>
 
