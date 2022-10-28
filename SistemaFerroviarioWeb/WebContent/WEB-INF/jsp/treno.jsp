@@ -8,7 +8,7 @@
 </head>
 
 <style>
-	<%@include file="allTurni.css" %>
+	<%@include file="tabella.css" %>
 </style>
 
 <body>
