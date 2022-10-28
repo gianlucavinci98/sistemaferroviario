@@ -6,12 +6,12 @@
 
 <html>
 <head>
-	<link  rel="stylesheet" type="text/css" href="../../resources/css/tabella.css"/>
+
+<link  rel="stylesheet" type="text/css" href="../../resources/css/tabella.css"/>
 
 <meta charset="ISO-8859-1">
 <title>Lista dei turni</title>
 </head>
-
 
 <body>
 	<div>

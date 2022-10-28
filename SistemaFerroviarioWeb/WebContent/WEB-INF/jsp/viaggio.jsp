@@ -4,6 +4,7 @@
 <!DOCTYPE html>
 <html>
 <head>
+<link  rel="stylesheet" type="text/css" href="../../resources/css/tabella.css"/>
 <meta charset="ISO-8859-1">
 <title>Insert title here</title>
 </head>
@@ -14,7 +15,7 @@
 </div>
 
 <div>
-<table border=2 width="70%" align="center">
+<table>
 <tr><th>IdViaggio</th><th>IdPartenza</th><th>IdArrivo</th><th>IdTreno</th><th>DataViaggio</th><th>Voto</th><th>Nvoti</th>
 <c:forEach var="i" begin="0" end="${dimensione}" items="${lista}">
 	<tr align=center>	
