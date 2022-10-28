@@ -14,11 +14,12 @@ public class TrenoBuilder {
 	}
 	
 	public String show() {
-		String s ="Lista Vagoni: ";
-		for(Vagone v: treno) {
+		String s="Lista vagoni:";
+		for(Vagone v : treno) {
 			s=s+"\n"+v.toString();
 		}
 		return s;
+		
 	}
 
 	
@@ -46,7 +47,10 @@ public class TrenoBuilder {
 			}
 			return t;
 			
+			
 		}
+		
+		
 		
 	}
 }
