@@ -18,9 +18,7 @@
 	Numero posti: ${result.numPosti} <br>
 	
 	<br>
-	<form method="get">
-		<input type="submit" name="submitViaggi" formaction="viaggiByTreno" value="Carica Viaggi">
-	</form>
+	<input id="btn1" type="button" value="Carica Viaggi" onclick="caricaViaggi()">
 	
 	<br><br>
 
