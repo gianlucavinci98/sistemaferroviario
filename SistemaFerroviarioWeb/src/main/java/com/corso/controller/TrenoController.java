@@ -42,5 +42,11 @@ public class TrenoController {
 		m.addAttribute("messaggio", "Treno inserito con successo!");
 		return "formAddTreno";
 	}
+	
+	@GetMapping("/builderTreno")
+	public String builderTreno() {
+		return "trenoBuilder";
+		
+	}
 
 }
