@@ -33,6 +33,7 @@
 <div align="center">
 <form >
 <input type="submit" name="submit" formaction="addDip" value="Aggiungi dipendente">
+<input type="submit" name="submit" formaction="" value="Associa Utente">
 </form>
 </div>
 <br><br>

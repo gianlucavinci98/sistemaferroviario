@@ -27,6 +27,10 @@
 	<br><br> 
 	
 	<div align="center">${message}</div>
+	
+	<form >
+<input type="submit" name="submit" formaction="allDipendentiAdmin" value="indietro">
+</form>
 
 </body>
 </html>
