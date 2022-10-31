@@ -11,6 +11,9 @@
 
 
 <body>
+<div>
+<%@include file="menu.jsp" %>
+</div>
 
 	ID treno: ${result.idTreno} <br>
 	Tipo: ${result.tipo} <br>

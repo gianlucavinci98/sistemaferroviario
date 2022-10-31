@@ -8,6 +8,9 @@
 <title>Trova Treno</title>
 </head>
 <body>
+<div>
+<%@include file="menu.jsp" %>
+</div>
 
 	<form:form modelAttribute="treno" method="GET">  
 	ID treno: <form:input path="idTreno"/> <br><br>   
