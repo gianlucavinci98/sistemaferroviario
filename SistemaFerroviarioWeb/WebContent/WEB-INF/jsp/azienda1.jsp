@@ -6,11 +6,11 @@
     <script type="text/javascript">
     function countdown(){
 	var ora = parseFloat(document.rovescia.conto.value);
-	ora = ora + 0.5;
+	ora = ora + 1.0;
 	document.rovescia.conto.value=ora;
-	var g_c = ora*3;
-	document.getElementById("barra").innerHTML="<div style='height:10px; width:"+g_c+"px; background-color:#FF0000'></div>";
-	if(ora==59){
+	var g_c = ora*4.5;
+	document.getElementById("barra").innerHTML="<div style='height:15px; width:"+g_c+"px; background-color:#FF0000'></div>";
+	if(ora==40){
 		location.href = "/SistemaFerroviarioWeb/home/treno/visualizzaTreno";
 	}
 	conto = setTimeout("countdown()",200);

@@ -12,12 +12,6 @@
 <div>
 	<%@include file="menu.jsp"%>
 </div>
-
-
-
-<p class="001"><a href="azienda1">Azienda1</a></p>
-<p class="002"><a href="#">Azienda2</a></p>
-<p class="003"><a href="#">Azienda3</a></p>
 	
 <form>
 <input id="input" type="text" placeholder="'Example: HPPPR'" name="sequenza">

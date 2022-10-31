@@ -24,6 +24,7 @@ public class BeansConfig {
 		
 		ds.setDriverClassName("org.mariadb.jdbc.Driver");
 		ds.setUsername("root");
+		ds.setPassword("Microice98");
 		ds.setUrl("jdbc:mariadb://localhost:3306/sistemaferroviariodb");
 		
 		return ds; 
