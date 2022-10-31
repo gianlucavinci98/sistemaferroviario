@@ -55,23 +55,4 @@ public class DipendenteDAOImpl implements DipendenteDAO{
     		return l;	
     }
 
-//	@Override
-//	public List<Dipendente> findForLivello(Integer livello) {
-//		if(livello==1) {
-//    		String jpql= "from Dipendente where livello =: livello";
-//    		Query q = manager.createQuery(jpql, Dipendente.class);
-//    		q.setParameter("livello", livello);
-//    		@SuppressWarnings("unchecked")
-//    		List<Dipendente> l = q.getResultList();
-//    		return l;
-//	    } else if(livello==2) {
-//    		String jpql= "from Dipendente where livello =: livello";
-//    		Query q = manager.createQuery(jpql, Dipendente.class);
-//    		q.setParameter("livello", livello);
-//    		@SuppressWarnings("unchecked")
-//    		List<Dipendente> l = q.getResultList();
-//    		return l;
-//	    } else return null;
-//	}
-//	
 }
