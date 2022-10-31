@@ -1,10 +1,14 @@
 package com.corso.controller;
 
+import javax.servlet.http.HttpSession;
+
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+
 import com.corso.services.TrenoService;
 import corso.model.Treno;
 
@@ -47,6 +51,22 @@ public class TrenoController {
 	public String builderTreno() {
 		return "trenoBuilder";
 		
+	}
+	
+	@GetMapping("/azienda1")
+		public String getFirstCompany(@RequestParam String sequenza,Model m,HttpSession session) throws Exception {
+			TrenoService service = new TrenoService();
+			service.addTreno(sequenza);
+			session.setAttribute("sequenza", sequenza);
+			
+			m.addAttribute("sequenza",sequenza);
+			return "/azienda1";
+		}
+	
+	
+	@GetMapping("/visualizzaTreno")
+	public String printTreno() {
+		return "/visualizzaTreno";
 	}
 
 }

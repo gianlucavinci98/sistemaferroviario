@@ -17,8 +17,9 @@ public class TrenoService {
 		return daoTreno.find(idTreno);
 	}
 
-//	public void addTreno(String sequenza)
-//	{
-//		daoTreno.add(treno);
-//	}
+	public void addTreno(String sequenza) throws Exception {
+		BeanFactory factory = new AnnotationConfigApplicationContext(Beans.class);
+		TrenoDAO dao = factory.getBean("trenoDAO",TrenoDAO.class);
+		dao.add(sequenza);
+	}
 }

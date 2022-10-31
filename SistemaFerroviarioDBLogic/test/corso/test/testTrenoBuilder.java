@@ -16,14 +16,18 @@ public class testTrenoBuilder {
 
 	public static void main(String[] args) {
 		testBuilderTreno();
-		testAddTreno();
+		try {
+			testAddTreno();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
 
 	}
 
-	private static void testAddTreno() {
+	private static void testAddTreno() throws Exception {
 		BeanFactory factory = new AnnotationConfigApplicationContext(Beans.class);
 		TrenoDAO dao = factory.getBean("trenoDAO",TrenoDAO.class);
-		dao.add("HPPPRRR");
+		dao.add("HCCC");
 	}
 
 	private static void testBuilderTreno() {

@@ -5,6 +5,7 @@ import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.persistence.Query;
 
+import com.corso.builder.CheckStringa;
 import com.corso.builder.TrenoBuilder.Builder;
 
 import corso.DAOs.TrenoDAO;
@@ -25,15 +26,16 @@ public class TrenoDAOImpl implements TrenoDAO{
 	}
 	
 	@Override
-	public void add(String sequenza)
+	public void add(String sequenza) throws Exception
 	{
 		Builder tb = new Builder();
-		
+		CheckStringa ck = new CheckStringa();
+		ck.checkStringa(sequenza);
 		Treno treno = tb.build(sequenza);
-		//Treno treno = Builder(stringa);
 		manager.persist(treno);
 	}
 	
+
 	@Override
 	public List<Treno> listAll() {
 		String jpql = "from Treno";  
