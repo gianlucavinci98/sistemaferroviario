@@ -47,36 +47,12 @@ public class DipendenteDAOImpl implements DipendenteDAO{
     
 	@Override
     public List<Dipendente> findForRuolo(String mansione){
-		if(mansione.equalsIgnoreCase("amministratore")) {
     		String jpql= "from Dipendente where ruolo =: mansione";
     		Query q = manager.createQuery(jpql, Dipendente.class);
     		q.setParameter("mansione", mansione);
     		@SuppressWarnings("unchecked")
     		List<Dipendente> l = q.getResultList();
-    		return l;
-	    } else if(mansione.equalsIgnoreCase("controllore")) {
-    		String jpql= "from Dipendente where ruolo =: mansione";
-    		Query q = manager.createQuery(jpql, Dipendente.class);
-    		q.setParameter("mansione", mansione);
-    		@SuppressWarnings("unchecked")
-    		List<Dipendente> l = q.getResultList();
-    		return l;
-    	} else if(mansione.equalsIgnoreCase("macchinista")) {
-    		String jpql= "from Dipendente where ruolo =: mansione";
-    		Query q = manager.createQuery(jpql, Dipendente.class);
-    		q.setParameter("mansione", mansione);
-    		@SuppressWarnings("unchecked")
-    		List<Dipendente> l = q.getResultList();
-    		return l;
-    	} else if(mansione.equalsIgnoreCase("cameriere")) {
-    		String jpql= "from Dipendente where ruolo =: mansione";
-    		Query q = manager.createQuery(jpql, Dipendente.class);
-    		q.setParameter("mansione", mansione);
-    		@SuppressWarnings("unchecked")
-    		List<Dipendente> l = q.getResultList();
-    		return l;
-    	} else return null;
-    	
+    		return l;	
     }
 
 //	@Override
