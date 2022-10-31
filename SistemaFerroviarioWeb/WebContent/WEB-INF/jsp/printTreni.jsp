@@ -21,6 +21,7 @@
 	<h1 align="center">Lista dei treni</h1>
 
 	<form id="utilities">
+		<input type="submit" name="submit" formaction="all" value="Visualizza tutti i turni">
 		<input type="submit" name="submit" formaction="formAdd" value="Aggiungi un nuovo turno">
 		<br><br>
 		Cerca turno: <input id="idTurno" name="idTurno"

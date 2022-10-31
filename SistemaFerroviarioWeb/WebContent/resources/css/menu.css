@@ -1,13 +1,20 @@
 @charset "ISO-8859-1";
 
+html {
+	font-family: Arial, sans-serif;
+	color: #f2f2f2;
+}
 
-
+body {
+	background-color: #404040;
+}
 
 nav{
 	width: 100%;
-	background-color: #f5ba4b;
+	background-color: #9933ff;
 	box-shadow: 5px 5px 10px 2px #333333;
 	margin:auto;
+	border-radius: 5px;
 }
 
 .menu {
@@ -25,19 +32,19 @@ nav{
 	display: block;
 	padding: 15px 30px;
 	text-decoration: none;
-	color: #222;
+	color: #f2f2f2;
 	transition: .3s;
 }
 
 .menu a:hover{
-	background: #fff;
-	color: #222;
+	background: #404040;
+	color: #f2f2f2;
 }
 
 .submenu{
 	padding: 0px 0px;
 	position:absolute;
-	border: 1px solid #f5ba4b;
+	border: 1px solid #9933ff;
 	border-bottom: none;
 	visibility: hidden;
 	opacity:0;
@@ -53,8 +60,8 @@ nav{
 .submenu li{
 	width:100%;
 	font-size:12px;
-	border-bottom: 1px solid #f5ba4b;
-	background-color: #faebd7;
+	border-bottom: 1px solid #9933ff;
+	background-color: #dab3ff;
 }
 
 .submenu a{
@@ -64,6 +71,6 @@ nav{
 }
 
 .submenu a:hover{
-	background: #f5ba4b;
-	color: #808080;
+	background: #9933ff;
+	color: #f2f2f2;
 }

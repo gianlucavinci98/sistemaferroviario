@@ -7,7 +7,7 @@
 <html>
 <head>
 
-<link  rel="stylesheet" type="text/css" href="../../resources/css/tabella.css"/>
+<link href="<c:url value="/resources/css/tabella.css" />" rel="stylesheet">
 
 <meta charset="ISO-8859-1">
 <title>Lista dei turni</title>

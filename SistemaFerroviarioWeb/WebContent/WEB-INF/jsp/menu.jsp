@@ -3,7 +3,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<link href="<c:url value="../../resources/css/menu.css" />" rel="stylesheet">
+	<link href="<c:url value="/resources/css/menu.css" />" rel="stylesheet">
 	
 <meta charset="ISO-8859-1">
 <title>Insert title here</title>
