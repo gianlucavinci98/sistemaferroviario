@@ -5,6 +5,7 @@ import java.util.List;
 import org.springframework.beans.factory.BeanFactory;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
+import com.corso.services.StazioneService;
 import com.corso.services.ViaggioService;
 
 import corso.DAOs.StazioneDAO;
@@ -36,7 +37,10 @@ public class TestFerrovie {
 		ViaggioService vs = new ViaggioService();
 		Viaggio v = new Viaggio(partenza, arrivo, t, data);
 		//daoViaggio.add(v);
-		vs.add(v);
+		//vs.add(v);
+		
+		StazioneService ss = new StazioneService();
+		System.out.println(ss.getAll());
 	}
 
 }

@@ -7,9 +7,11 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import com.corso.services.StazioneService;
 import com.corso.services.TrenoService;
 import com.corso.services.ViaggioService;
 
+import corso.model.Stazione;
 import corso.model.Treno;
 import corso.model.Viaggio;
 
@@ -31,8 +33,11 @@ public class ViaggioController {
 	public String formAddViaggio(Model m)
 	{
 		TrenoService ts = new TrenoService();
+		StazioneService ss = new StazioneService();
 		List<Treno> listaTreni = ts.getAll();
+		List<Stazione> listaStazioni = ss.getAll();
 		m.addAttribute("listaTreni", listaTreni);
+		m.addAttribute("listaStazioni", listaStazioni);
 		m.addAttribute("viaggio", new Viaggio());
 		return "formAddViaggio";
 	}
@@ -40,8 +45,11 @@ public class ViaggioController {
 	@GetMapping("/addViaggio")
 	public String addViaggio(@ModelAttribute("viaggio") Viaggio viaggio)
 	{
-		ViaggioService vService = new ViaggioService();
-		vService.add(viaggio);
+		System.out.print(viaggio);
+		
+		
+//		ViaggioService vService = new ViaggioService();
+//		vService.add(viaggio);
 		
 		return "formAddViaggio";
 	}

@@ -14,14 +14,32 @@
 	</div>
 	
 	
-	<form:form modelAttribute="viaggio" method="GET">     
+	<form:form modelAttribute="viaggio" method="GET">  
+	   
 	<label for="treni">Scegli treno:</label>
-    <select id="treni" name="treni">
+    <form:select id="treni" path="treno">
     <c:forEach var="i" begin="0" end="${listaTreni.size()}" items="${listaTreni}">
-      <option value="i">${i.idTreno} - ${i.sigla}</option>
+      <form:option value="i" label="${i.idTreno} - ${i.sigla}"></form:option>
+    </c:forEach>
+    </form:select>
+    <br><br>
+    
+    <label for="partenze">Scegli partenza:</label>
+    <select id="partenze" name="partenze">
+    <c:forEach var="i" begin="0" end="${listaStazioni.size()}" items="${listaStazioni}">
+      <option value="i">${i.nomeStazione}</option>
     </c:forEach>
     </select>
     <br><br>
+    
+    <label for="arrivi">Scegli arrivo:</label>
+    <select id="arrivo" name="arrivo">
+    <c:forEach var="i" begin="0" end="${listaStazioni.size()}" items="${listaStazioni}">
+      <option value="i">${i.nomeStazione}</option>
+    </c:forEach>
+    </select>
+    <br><br>
+    
 	<input type="submit" name="submit" formaction="addViaggio" value="AGGIUNGI"> 
 	</form:form>
 
