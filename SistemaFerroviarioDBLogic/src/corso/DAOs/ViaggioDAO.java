@@ -13,7 +13,7 @@ public interface ViaggioDAO {
 	
 	public Stazione findArrivo(int idViaggio);
 	public Stazione findPartenza(int idViaggio);
-	
+	public void add(Viaggio viaggio);
     public  List<Viaggio> allViaggi();
 
 }

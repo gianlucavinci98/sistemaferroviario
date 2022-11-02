@@ -44,8 +44,7 @@ public class Viaggio {
 	public Viaggio() {
 	}
 
-	public Viaggio(Integer idViaggio, Stazione partenza, Stazione arrivo, Treno treno, Date dataViaggio) {
-		this.idViaggio = idViaggio;
+	public Viaggio(Stazione partenza, Stazione arrivo, Treno treno, Date dataViaggio) {
 		this.partenza = partenza;
 		this.arrivo = arrivo;
 		this.treno = treno;
