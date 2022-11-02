@@ -63,7 +63,8 @@ Data: <form:input type="date" id="dataViaggio" path="dataViaggio"/>
 <br><br>
 Voto: <form:input type="number" id="voto" path="voto" />
 <br><br>
-
+<br><br>
+Numero Voti: <form:input type="number" id="nVoti" path="nvoti" />
 <input type="submit" name="submit" formaction="findViaggiByFilter" value="cerca">
 
 

@@ -63,7 +63,7 @@ filter.setActive(true);
 		
 		
 		Predicate idViaggio=null, partenza=null, arrivo=null, treno=null, dataViaggio=null, voto=null, nVoti=null;
-		Predicate p=criteriaBuilder.equal(criteriaRoot.get("treno"), filter.getTreno());//Predicato che deve essere sempre vero, da modificare
+		Predicate p=criteriaBuilder.equal(criteriaRoot.get("treno"), criteriaRoot.get("treno"));//Predicato che deve essere sempre vero, da modificare
 		
 		if(filter.getTreno()!=null) {
 			treno=criteriaBuilder.equal(criteriaRoot.get("treno"), filter.getTreno());
@@ -91,11 +91,14 @@ filter.setActive(true);
 		}
 		
 		if(filter.getVoto()>0) {
-			voto=criteriaBuilder.greaterThan(criteriaRoot.get("voto"), filter.getVoto());
+			voto=criteriaBuilder.greaterThanOrEqualTo(criteriaRoot.get("voto"), filter.getVoto());
 			p=criteriaBuilder.and(p,voto);
 		}
 		
-		
+		if(filter.getNvoti()>0) {
+			nVoti=criteriaBuilder.greaterThanOrEqualTo(criteriaRoot.get("nvoti"), filter.getNvoti());
+			p=criteriaBuilder.and(p,nVoti);
+		}
 		
 		
 		
