@@ -10,5 +10,6 @@ public interface StazioneDAO {
 	
 	public Stazione find(Integer idStazione);
 	public List<Stazione> getAll();
+	public Stazione findByName(String nomeStazione);
 
 }

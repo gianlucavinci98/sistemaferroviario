@@ -22,5 +22,10 @@ public class StazioneService {
 	{
 		return daoStazione.find(idStazione);
 	}
+	
+	public Stazione findStazioneByName(String nomeStazione)
+	{
+		return daoStazione.findByName(nomeStazione);
+	}
 
 }

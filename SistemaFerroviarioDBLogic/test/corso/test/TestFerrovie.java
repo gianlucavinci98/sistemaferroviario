@@ -41,6 +41,10 @@ public class TestFerrovie {
 		
 		StazioneService ss = new StazioneService();
 		System.out.println(ss.getAll());
+		
+		
+		Stazione st = daoStazione.findByName("centrale");
+		System.out.println(st);
 	}
 
 }

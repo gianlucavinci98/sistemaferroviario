@@ -29,4 +29,13 @@ public class StazioneDAOImpl implements StazioneDAO{
 		return ris;
 	}
 
+	@Override
+	public Stazione findByName(String nomeStazione) {
+		String jpql = "from Stazione where nomeStazione = :nomeStazione";  
+	    Query q =  manager.createQuery(jpql, Stazione.class);
+	    q.setParameter("nomeStazione", nomeStazione);
+		Stazione ris = (Stazione) q.getSingleResult();
+		return ris;
+	}
+
 }
