@@ -19,7 +19,7 @@ public class CheckStringa {
 			if(c!='H' && c!='R' && c!='P' && c!='C') throw new Exception();
 			if(flagCargo && (c=='R' || c=='P')) throw new Exception();
 			if(c=='R') flagRisto++;
-			if(flagRisto>1) throw new Exception();
+			if(flagRisto>2) throw new Exception();
 		}
 		
 	}

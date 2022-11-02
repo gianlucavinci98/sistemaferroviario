@@ -6,16 +6,20 @@
 <head>
 <meta charset="ISO-8859-1">
 <title>Insert title here</title>
+	<link href="<c:url value="/resources/css/visualizzaTreno.css" />" rel="stylesheet">
 </head>
 <body>
+<div id="menu">
+	<%@include file="menu.jsp" %>
 
-<img id="display">
+</div>
+
+<div id="display"></div>
 
 
 <script>
 	var display = document.getElementById("display");
 	var sequenza = "${sessionScope.sequenza}";
-	
 	var img1 = [];
 	var i = 0;
 	for(i=0;i<sequenza.length;i++){
@@ -23,11 +27,8 @@
 			var img = new Image();
 			img.src = "../../resources/img/"+c+".png";
 			img1[i] = img;		
-			document.body.append(img1[i]);
-			
+			document.getElementById("display").append(img1[i]);
 	}
-
-
 </script>
 
 </body>

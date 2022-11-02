@@ -33,6 +33,7 @@ public class TrenoBuilder {
 			TrenoBuilder t = new TrenoBuilder();
 			int peso=0;
 			int numeroPosti = 0;
+			Treno treno = new Treno();
 			
 			for(int i=0;i<sequenza.length();i++) {
 				switch(sequenza.charAt(i)) {
@@ -45,12 +46,14 @@ public class TrenoBuilder {
 					Cargo c = new Cargo();
 					t.addVagone(c);
 					peso=peso + c.getPeso();
+					treno.setTipo("C");
 				break;
 				case 'P':
 					Passeggeri p = new Passeggeri();
 					t.addVagone(p);
 					peso=peso + p.getPeso();
 					numeroPosti = numeroPosti + p.getnPasseggeri();
+					treno.setTipo("P");
 				break;
 				case 'R':
 					Ristorante r = new Ristorante();
@@ -61,7 +64,7 @@ public class TrenoBuilder {
 				}
 			}
 			
-			Treno treno = new Treno();
+			
 			treno.setNumPosti(numeroPosti);
 			treno.setPeso(peso);
 			treno.setSigla(sequenza);
