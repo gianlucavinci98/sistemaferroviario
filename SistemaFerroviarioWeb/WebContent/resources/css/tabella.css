@@ -1,18 +1,22 @@
 @charset "ISO-8859-1";
 
 input {
-  background-color: #404040;
-  color: #f2f2f2;
-  border: 2px solid #9933ff;
-  padding: 5px 10px;
-  text-align: center;
-  text-decoration: none;
-  display: inline-block;
+	background-color: #404040;
+	color: #f2f2f2;
+	border: 2px solid #9933ff;
+	padding: 5px 10px;
+	text-align: center;
+	text-decoration: none;
+	display: inline-block;
 }
 
 input:hover, input:active {
-  background-color: #dab3ff;
-  color: black;
+	background-color: #dab3ff;
+	color: black;
+}
+
+a {
+	color: #66ffff
 }
 
 td {
@@ -24,7 +28,7 @@ td {
 th {
 	border: 1px solid black;
 	border-radius: 10px;
-	background-color: #fff;
+	background-color: #f2f2f2;
 	color: #222;
 }
 

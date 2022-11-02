@@ -1,6 +1,7 @@
 package com.corso.controller;
 
 import java.time.LocalDate;
+import java.time.format.DateTimeParseException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -61,15 +62,25 @@ public class TurnoController {
 		TurnoService turnoService = new TurnoService();
 		DipendenteService dipendenteService = new DipendenteService();
 		TrenoService trenoService = new TrenoService();
+		Dipendente dipendente = dipendenteService.getFindDipendente(idDipendente);
+		Treno treno = trenoService.findTreno(idTreno);
 		Turno turno = new Turno();
-		LocalDate dataTurno = LocalDate.parse(data);
 		
-		turno.setDipendente(dipendenteService.getFindDipendente(idDipendente));
-		turno.setTreno(trenoService.findTreno(idTreno));
-		turno.setDataTurno(dataTurno);
-		turnoService.addTurno(turno);
+		if ((dipendente != null) && (treno != null)) {
+			try {
+				LocalDate dataTurno = LocalDate.parse(data);
+				turno.setDipendente(dipendente);
+				turno.setTreno(treno);
+				turno.setDataTurno(dataTurno);
+				turnoService.addTurno(turno);
+				m.addAttribute("message", "Turno inserito con successo!");
+			} catch(DateTimeParseException e) {
+				m.addAttribute("message", "Errore, riprovare.");
+			}
+		} else {
+			m.addAttribute("message", "Errore, riprovare.");
+		}
 		
-		m.addAttribute("message", "Turno inserito con successo!");
 		return "formAddTurno";
 	}
 	
@@ -114,9 +125,15 @@ public class TurnoController {
 	@GetMapping("/findDipendentiByData")
 	public String findDipendentiByData(@RequestParam String data, Model m) {
 		TurnoService service = new TurnoService();
-		LocalDate dataTurno = LocalDate.parse(data);
-		List<Dipendente> list = service.findDipendentiByData(dataTurno);
-		m.addAttribute("list", list);
+		
+		try {
+			LocalDate dataTurno = LocalDate.parse(data);
+			List<Dipendente> list = service.findDipendentiByData(dataTurno);
+			m.addAttribute("list", list);
+		} catch(DateTimeParseException e) {
+			return "redirect:/home/turni/all";
+		}
+		
 		return "printDipendenti";
 	}
 	
