@@ -44,39 +44,5 @@
 </table>
 <br></br>
 
-<div align="center">
-
-<form:form modelAttribute="emp" method="GET">
-        
-        
-      
-Codice Viaggio: <form:input  type="number" path="idViaggio"/>
-<br><br>
-
-Partenza: <form:input type="text" path="cittaPartenza"/>
-<br><br>
-Arrivo: <form:input type="text" path="cittaArrivo"/>
-<br><br>
-Treno: <form:input type="number" id="idTreno" path="idTreno" />
-<br><br>
-Data: <form:input type="date" id="dataViaggio" path="dataViaggio"/>
-<br><br>
-Voto: <form:input type="number" id="voto" path="voto" />
-<br><br>
-
-<input type="submit" name="submit" formaction="findViaggiByFilter" value="cerca">
-
-
- </form:form>
-
-
-
-
-</div>
-
-
-
-
-
 </body>
 </html>

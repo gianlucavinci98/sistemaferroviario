@@ -6,15 +6,19 @@ import java.util.List;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import com.corso.services.StazioneService;
 import com.corso.services.TrenoService;
 import com.corso.services.ViaggioService;
+
+
 import corso.model.Stazione;
 import corso.model.Treno;
 import corso.model.Viaggio;
+import corso.model.filter.ViaggioFilter;
 
 
 @Controller
@@ -27,6 +31,7 @@ public class ViaggioController {
 		List<Viaggio> lista= v.getAllViaggi();
 		m.addAttribute("dimensione", lista.size());
 		m.addAttribute("lista",lista);
+		m.addAttribute("emp", new ViaggioFilter());
 		return "/viaggio";
 	}
 	
@@ -69,6 +74,24 @@ public class ViaggioController {
 		viaggioService.add(viaggio);
 		
 		return "/allViaggi";
+	}
+	
+	@GetMapping("/findViaggiByFilter")
+	public String findViaggiByFilter(@ModelAttribute ViaggioFilter vf,  Model m) {
+
+
+		ViaggioService v= new ViaggioService();
+
+		
+		
+		List<Viaggio> lista= v.getFindByFilter(vf);
+		
+		m.addAttribute("dimensione", lista.size());
+		m.addAttribute("lista",lista);
+		
+		return "/viaggioPrint";
+		
+		
 	}
 	
 	
