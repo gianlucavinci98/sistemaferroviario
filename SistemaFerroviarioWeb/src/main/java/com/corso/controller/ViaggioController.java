@@ -1,5 +1,7 @@
 package com.corso.controller;
 
+import java.sql.Date;
+import java.time.LocalDate;
 import java.util.List;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -42,14 +44,31 @@ public class ViaggioController {
 	}
 	
 	@GetMapping("/addViaggio")
-	public String addViaggio(@RequestParam Integer idpartenza)
+	public String addViaggio(@RequestParam(name = "treno") Integer idTreno,
+			@RequestParam(name = "partenza") Integer idPartenza,
+			@RequestParam(name = "arrivo") Integer idArrivo,
+			@RequestParam(name = "data") String data)
 	{
-		System.out.print(idpartenza);
+		TrenoService trenoService = new TrenoService();
+		StazioneService stazioneService = new StazioneService();
+		ViaggioService viaggioService = new ViaggioService();
 		
-//		ViaggioService vService = new ViaggioService();
-//		vService.add(viaggio);
+		Treno treno = trenoService.findTreno(idTreno);
+		Stazione partenza = stazioneService.findStazione(idPartenza);
+		Stazione arrivo = stazioneService.findStazione(idArrivo);
+		Date dataViaggio = Date.valueOf(LocalDate.parse(data));
 		
-		return "formAddViaggio";
+		System.out.println(treno);
+		System.out.println(partenza);
+		System.out.println(arrivo);
+		System.out.println(dataViaggio);
+		
+		Viaggio viaggio = new Viaggio(partenza, arrivo, treno, dataViaggio);
+		System.out.println(viaggio);
+		
+		viaggioService.add(viaggio);
+		
+		return "/allViaggi";
 	}
 	
 	

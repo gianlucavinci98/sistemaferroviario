@@ -52,26 +52,26 @@
 	<div align="center">
 		<form id=addViaggio>
 			
-			<label for="treni">Scegli treno:</label>
-		    <select id="treni">
+			<label for="treno">Scegli treno:</label>
+		    <select id="treno" name="treno">
 		    <c:forEach var="i" begin="0" end="${listaTreni.size()}" items="${listaTreni}">
-		      <option value="i" label="${i.idTreno} - ${i.sigla}"></option>
+		      <option value="${i.idTreno}" label="${i.idTreno} - ${i.sigla}"></option>
 		    </c:forEach>
 		    </select>
 		    <br><br>
 		    
 			<label for="idpartenza">Scegli partenza:</label>
-		    <select id="idpartenza" name="idpartenza">
+		    <select id="partenza" name="partenza">
 		    <c:forEach var="i" begin="0" end="${listaStazioni.size()}" items="${listaStazioni}">
-		      <option value="i.idStazione" label="${i.nomeStazione}"></option>
+		      <option value="${i.idStazione}" label="${i.nomeStazione}"></option>
 		    </c:forEach>
 		    </select>
 		    <br><br>
 		    
-		    <label for="arrivi">Scegli arrivo:</label>
-		    <select id="arrivi" name="arrivi">
+		    <label for="arrivo">Scegli arrivo:</label>
+		    <select id="arrivo" name="arrivo">
 		    <c:forEach var="i" begin="0" end="${listaStazioni.size()}" items="${listaStazioni}">
-		      <option value="i" label="${i.nomeStazione}"></option>
+		      <option value="${i.idStazione}" label="${i.nomeStazione}"></option>
 		    </c:forEach>
 		    </select>
 		    <br><br>

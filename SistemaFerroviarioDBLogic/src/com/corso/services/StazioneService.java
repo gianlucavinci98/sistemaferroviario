@@ -17,5 +17,10 @@ public class StazioneService {
 	{
 		return daoStazione.getAll();
 	}
+	
+	public Stazione findStazione(Integer idStazione)
+	{
+		return daoStazione.find(idStazione);
+	}
 
 }
