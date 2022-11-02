@@ -63,17 +63,10 @@ public class ViaggioController {
 		Stazione arrivo = stazioneService.findStazione(idArrivo);
 		Date dataViaggio = Date.valueOf(LocalDate.parse(data));
 		
-		System.out.println(treno);
-		System.out.println(partenza);
-		System.out.println(arrivo);
-		System.out.println(dataViaggio);
-		
 		Viaggio viaggio = new Viaggio(partenza, arrivo, treno, dataViaggio);
-		System.out.println(viaggio);
-		
 		viaggioService.add(viaggio);
-		
-		return "/allViaggi";
+	
+		return "home";
 	}
 	
 	@GetMapping("/findViaggiByFilter")
