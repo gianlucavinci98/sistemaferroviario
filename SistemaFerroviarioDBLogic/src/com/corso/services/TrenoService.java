@@ -1,5 +1,7 @@
 package com.corso.services;
 
+import java.util.List;
+
 import org.springframework.beans.factory.BeanFactory;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
@@ -21,5 +23,10 @@ public class TrenoService {
 		BeanFactory factory = new AnnotationConfigApplicationContext(Beans.class);
 		TrenoDAO dao = factory.getBean("trenoDAO",TrenoDAO.class);
 		return dao.add(sequenza);
+	}
+	
+	public List<Treno> getAll()
+	{
+		return daoTreno.listAll();
 	}
 }

@@ -1,13 +1,16 @@
 package com.corso.controller;
 
 import java.util.List;
-
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
+
+import com.corso.services.TrenoService;
 import com.corso.services.ViaggioService;
+
+import corso.model.Treno;
 import corso.model.Viaggio;
 
 
@@ -27,6 +30,9 @@ public class ViaggioController {
 	@GetMapping("/formAddViaggio")
 	public String formAddViaggio(Model m)
 	{
+		TrenoService ts = new TrenoService();
+		List<Treno> listaTreni = ts.getAll();
+		m.addAttribute("listaTreni", listaTreni);
 		m.addAttribute("viaggio", new Viaggio());
 		return "formAddViaggio";
 	}
