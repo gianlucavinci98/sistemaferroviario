@@ -26,13 +26,14 @@ public class TrenoDAOImpl implements TrenoDAO{
 	}
 	
 	@Override
-	public void add(String sequenza) throws Exception
+	public Treno add(String sequenza) throws Exception
 	{
 		Builder tb = new Builder();
 		CheckStringa ck = new CheckStringa();
 		ck.checkStringa(sequenza);
 		Treno treno = tb.build(sequenza);
 		manager.persist(treno);
+		return treno;
 	}
 	
 

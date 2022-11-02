@@ -56,7 +56,8 @@ public class TrenoController {
 	@GetMapping("/azienda1")
 		public String getFirstCompany(@RequestParam String sequenza,Model m,HttpSession session) throws Exception {
 			TrenoService service = new TrenoService();
-			service.addTreno(sequenza);
+			Treno treno = service.addTreno(sequenza);
+			session.setAttribute("treno", treno);
 			session.setAttribute("sequenza", sequenza);
 			
 			m.addAttribute("sequenza",sequenza);

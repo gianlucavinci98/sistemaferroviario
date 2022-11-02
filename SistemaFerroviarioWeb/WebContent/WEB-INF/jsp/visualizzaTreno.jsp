@@ -16,6 +16,13 @@
 
 <div id="display"></div>
 
+<div id="caratteristiche">
+	<br>
+	idTreno = ${sessionScope.treno.idTreno}<br>
+	Tipologia: ${sessionScope.treno.tipo}<br>
+	NumeroPosti: ${sessionScope.treno.numPosti}<br>
+</div>
+
 
 <script>
 	var display = document.getElementById("display");
