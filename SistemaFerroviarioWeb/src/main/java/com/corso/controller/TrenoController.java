@@ -41,7 +41,7 @@ public class TrenoController {
 	@GetMapping("/addTreno")
 	public String addTreno(Model m, @ModelAttribute("treno") Treno treno)
 	{
-		TrenoService tService = new TrenoService();
+		//TrenoService tService = new TrenoService();
 		//tService.addTreno(treno);
 		m.addAttribute("messaggio", "Treno inserito con successo!");
 		return "formAddTreno";

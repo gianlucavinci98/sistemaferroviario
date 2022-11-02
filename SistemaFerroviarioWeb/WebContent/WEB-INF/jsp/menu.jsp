@@ -33,10 +33,13 @@
 			<li class="has-children"><a href = "#">Viaggio</a>
 					<ul class="submenu">
 					<c:if test="${sessionScope.utente.livello<1}">
-					<li><a>I Tuoi Viaggi</a></li>
+						<li><a>I Tuoi Viaggi</a></li>
+					</c:if>
+					<c:if test="${sessionScope.utente.livello>1}">
+						<li><a href="/SistemaFerroviarioWeb/home/viaggio/formAddViaggio">Aggiungi Viaggio</a></li>
 					</c:if>
 					<c:if test="${sessionScope.utente.livello>0}">
-					<li><a href="/SistemaFerroviarioWeb/home/viaggio/allViaggi">Tutti i Viaggi</a></li>
+						<li><a href="/SistemaFerroviarioWeb/home/viaggio/allViaggi">Tutti i Viaggi</a></li>
 					</c:if>
 					</ul>
 			</li>
