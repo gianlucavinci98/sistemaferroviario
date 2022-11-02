@@ -14,34 +14,73 @@
 	</div>
 	
 	
-	<form:form modelAttribute="viaggio" method="GET">  
+<%-- 	<form:form modelAttribute="viaggio" method="GET">   --%>
 	   
-	<label for="treni">Scegli treno:</label>
-    <form:select id="treni" path="treno">
-    <c:forEach var="i" begin="0" end="${listaTreni.size()}" items="${listaTreni}">
-      <form:option value="i" label="${i.idTreno} - ${i.sigla}"></form:option>
-    </c:forEach>
-    </form:select>
-    <br><br>
+<!-- 	<label for="treni">Scegli treno:</label> -->
+<%--     <form:select id="treni" path="treno"> --%>
+<%--     <c:forEach var="i" begin="0" end="${listaTreni.size()}" items="${listaTreni}"> --%>
+<%--       <form:option value="i" label="${i.idTreno} - ${i.sigla}"></form:option> --%>
+<%--     </c:forEach> --%>
+<%--     </form:select> --%>
+<!--     <br><br> -->
     
-    <label for="partenze">Scegli partenza:</label>
-    <select id="partenze" name="partenze">
-    <c:forEach var="i" begin="0" end="${listaStazioni.size()}" items="${listaStazioni}">
-      <option value="i">${i.nomeStazione}</option>
-    </c:forEach>
-    </select>
-    <br><br>
+<!--     <label for="partenze">Scegli partenza:</label> -->
+<%--     <form:select id="partenze" name="partenze" path="partenza"> --%>
+<%--     <c:forEach var="i" begin="0" end="${listaStazioni.size()}" items="${listaStazioni}"> --%>
+<%--       <form:option value="i" label="${i.nomeStazione}"></form:option> --%>
+<%--     </c:forEach> --%>
+<%--     </form:select> --%>
+<!--     <br><br> -->
     
-    <label for="arrivi">Scegli arrivo:</label>
-    <select id="arrivo" name="arrivo">
-    <c:forEach var="i" begin="0" end="${listaStazioni.size()}" items="${listaStazioni}">
-      <option value="i">${i.nomeStazione}</option>
-    </c:forEach>
-    </select>
-    <br><br>
+<!--     <label for="arrivi">Scegli arrivo:</label> -->
+<%--     <form:select id="arrivi" name="arrivi" path="arrivo"> --%>
+<%--     <c:forEach var="i" begin="0" end="${listaStazioni.size()}" items="${listaStazioni}"> --%>
+<%--       <form:option value="i" label="${i.nomeStazione}"></form:option> --%>
+<%--     </c:forEach> --%>
+<%--     </form:select> --%>
+<!--     <br><br> -->
     
-	<input type="submit" name="submit" formaction="addViaggio" value="AGGIUNGI"> 
-	</form:form>
+<%--     Data (YYYY-MM-DD): <form:input path="dataViaggio"/> <br><br> --%>
+    
+<!-- 	<input type="submit" name="submit" formaction="addViaggio" value="AGGIUNGI">  -->
+<%-- 	</form:form> --%>
+
+
+
+
+
+	<div align="center">
+		<form id=addViaggio>
+			
+			<label for="treni">Scegli treno:</label>
+		    <select id="treni">
+		    <c:forEach var="i" begin="0" end="${listaTreni.size()}" items="${listaTreni}">
+		      <option value="i" label="${i.idTreno} - ${i.sigla}"></option>
+		    </c:forEach>
+		    </select>
+		    <br><br>
+		    
+			<label for="idpartenza">Scegli partenza:</label>
+		    <select id="idpartenza" name="idpartenza">
+		    <c:forEach var="i" begin="0" end="${listaStazioni.size()}" items="${listaStazioni}">
+		      <option value="i.idStazione" label="${i.nomeStazione}"></option>
+		    </c:forEach>
+		    </select>
+		    <br><br>
+		    
+		    <label for="arrivi">Scegli arrivo:</label>
+		    <select id="arrivi" name="arrivi">
+		    <c:forEach var="i" begin="0" end="${listaStazioni.size()}" items="${listaStazioni}">
+		      <option value="i" label="${i.nomeStazione}"></option>
+		    </c:forEach>
+		    </select>
+		    <br><br>
+					
+			Data (YYYY-MM-DD): <input id="data" name="data" type="text" /> <br><br>
+			
+			<input type="submit" name="submit" formaction="addViaggio" value="AGGIUNGI"> 
+		</form>
+	</div>
 
 </body>
 </html>

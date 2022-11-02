@@ -4,13 +4,12 @@ import java.util.List;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import com.corso.services.StazioneService;
 import com.corso.services.TrenoService;
 import com.corso.services.ViaggioService;
-
 import corso.model.Stazione;
 import corso.model.Treno;
 import corso.model.Viaggio;
@@ -38,15 +37,14 @@ public class ViaggioController {
 		List<Stazione> listaStazioni = ss.getAll();
 		m.addAttribute("listaTreni", listaTreni);
 		m.addAttribute("listaStazioni", listaStazioni);
-		m.addAttribute("viaggio", new Viaggio());
+		//m.addAttribute("viaggio", new Viaggio());
 		return "formAddViaggio";
 	}
 	
 	@GetMapping("/addViaggio")
-	public String addViaggio(@ModelAttribute("viaggio") Viaggio viaggio)
+	public String addViaggio(@RequestParam Integer idpartenza)
 	{
-		System.out.print(viaggio);
-		
+		System.out.print(idpartenza);
 		
 //		ViaggioService vService = new ViaggioService();
 //		vService.add(viaggio);
