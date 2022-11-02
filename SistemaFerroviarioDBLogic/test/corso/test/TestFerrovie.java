@@ -1,8 +1,13 @@
 package corso.test;
 
+import java.sql.Date;
 import java.util.List;
 import org.springframework.beans.factory.BeanFactory;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
+
+import com.corso.services.ViaggioService;
+
+import corso.DAOs.StazioneDAO;
 import corso.DAOs.TrenoDAO;
 import corso.DAOs.ViaggioDAO;
 import corso.model.Stazione;
@@ -19,33 +24,19 @@ public class TestFerrovie {
 		BeanFactory factory = new AnnotationConfigApplicationContext(Beans.class);
 		TrenoDAO daoTreno = factory.getBean("trenoDAO", TrenoDAO.class);
 		ViaggioDAO daoViaggio = factory.getBean("viaggioDAO", ViaggioDAO.class);
+		StazioneDAO daoStazione = factory.getBean("stazioneDAO", StazioneDAO.class);
 		
 		Treno t = daoTreno.find(3);
-		System.out.println(t);
-		List<Viaggio> viaggi = daoTreno.getViaggiByTreno(3);
-		for (Viaggio v : viaggi)
-		{
-			System.out.println(v);
-		}
+		Stazione partenza = daoStazione.find(1);
+		Stazione arrivo = daoStazione.find(2);
+		Date data = Date.valueOf("2022-10-09");
+		System.out.println(t + "\n" + partenza + "\n" + arrivo + "\n" + data);
 		
-//		List<Treno> treni = daoTreno.findByTipo("passeggeri");
-//		for (Treno tr : treni)
-//		{
-//			System.out.println(tr);
-//		}
 		
-		List<Treno> treni = daoTreno.listAll();
-		for (Treno tr : treni)
-		{
-			System.out.println(tr);
-		}
-		
-//		Stazione arrivo = daoViaggio.findArrivo(1);
-//		Stazione partenza = daoViaggio.findPartenza(1);
-//		System.out.println(arrivo);
-//		System.out.println(partenza);
-		
-
+		ViaggioService vs = new ViaggioService();
+		Viaggio v = new Viaggio(partenza, arrivo, t, data);
+		//daoViaggio.add(v);
+		vs.add(v);
 	}
 
 }

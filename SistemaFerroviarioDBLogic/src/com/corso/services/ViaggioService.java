@@ -21,4 +21,12 @@ public class ViaggioService {
 		List<Viaggio> list= dao.allViaggi();
 		return list;
 	}
+	
+	public void add(Viaggio viaggio)
+	{
+		@SuppressWarnings("resource")
+		BeanFactory factory = new AnnotationConfigApplicationContext(Beans.class);
+		ViaggioDAO daoViaggio =  factory.getBean("viaggioDAO", ViaggioDAO.class);
+		daoViaggio.add(viaggio);
+	}
 }
