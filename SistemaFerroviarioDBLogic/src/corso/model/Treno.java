@@ -25,8 +25,8 @@ public class Treno {
 	@Column
 	private int peso;
 	
-	@Column
-	private double velocita;
+	@Column 
+	private int pesoTrainabile;
 	
 	@Column
 	private int numPosti;
@@ -47,10 +47,10 @@ public class Treno {
 
 	public Treno() {}
 
-	public Treno(Integer idTreno, String tipo, double velocita, int numPosti) {
+	public Treno(Integer idTreno, String tipo, int pesoTrainabile, int numPosti) {
 		this.idTreno = idTreno;
 		this.tipo = tipo;
-		this.velocita = velocita;
+		this.pesoTrainabile = pesoTrainabile;
 		this.numPosti = numPosti;
 	}
 
@@ -68,14 +68,6 @@ public class Treno {
 
 	public void setTipo(String tipo) {
 		this.tipo = tipo;
-	}
-
-	public double getVelocita() {
-		return velocita;
-	}
-
-	public void setVelocita(double velocita) {
-		this.velocita = velocita;
 	}
 
 	public int getNumPosti() {
@@ -102,10 +94,18 @@ public class Treno {
 	public void setPeso(int peso) {
 		this.peso = peso;
 	}
+	
+	public int getPesoTrainabile() {
+		return pesoTrainabile;
+	}
+
+	public void setPesoTrainabile(int pesoTrainabile) {
+		this.pesoTrainabile = pesoTrainabile;
+	}
 
 	@Override
 	public String toString() {
-		return "Treno [idTreno=" + idTreno + ", tipo=" + tipo + ", velocita=" + velocita + ", numPosti=" + numPosti
+		return "Treno [idTreno=" + idTreno + ", tipo=" + tipo + ",	pesoTrainabile=" + pesoTrainabile + ", numPosti=" + numPosti
 				+ ", viaggi=" + viaggi + ", sigla=" + sigla + "]";
 	}
 
