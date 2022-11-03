@@ -21,6 +21,8 @@
 	idTreno = ${sessionScope.treno.idTreno}<br>
 	Tipologia: ${sessionScope.treno.tipo}<br>
 	NumeroPosti: ${sessionScope.treno.numPosti}<br>
+	peso: ${sessionScope.treno.peso}<br>
+	Sigla: ${sessionScope.treno.sigla }<br>
 </div>
 
 

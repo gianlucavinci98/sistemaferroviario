@@ -2,9 +2,9 @@ package com.corso.builder;
 
 public abstract class Vagone {
 	
-	public String nome;
-	public int peso;
-	public double lunghezza;
+	private String nome;
+	private int peso;
+	private double lunghezza;
 	
 	
 	public Vagone(String nome,int peso,double lunghezza) {

@@ -6,7 +6,7 @@ import javax.persistence.PersistenceContext;
 import javax.persistence.Query;
 
 import com.corso.builder.CheckStringa;
-import com.corso.builder.TrenoBuilder.Builder;
+import com.corso.builder.TrenoBuilder;
 
 import corso.DAOs.TrenoDAO;
 import corso.model.Treno;
@@ -28,7 +28,7 @@ public class TrenoDAOImpl implements TrenoDAO{
 	@Override
 	public Treno add(String sequenza) throws Exception
 	{
-		Builder tb = new Builder();
+		TrenoBuilder tb = new TrenoBuilder();
 		CheckStringa ck = new CheckStringa();
 		ck.checkStringa(sequenza);
 		Treno treno = tb.build(sequenza);
