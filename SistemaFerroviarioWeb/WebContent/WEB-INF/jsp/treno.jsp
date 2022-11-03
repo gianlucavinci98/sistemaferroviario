@@ -18,6 +18,7 @@
 	ID treno: ${result.idTreno} <br>
 	Tipo: ${result.tipo} <br>
 	Numero posti: ${result.numPosti} <br>
+	Peso trainabile: ${result.pesoTrainabile} t<br>
 	
 	<br>
 	<input id="btn1" type="button" value="Carica Viaggi" onclick="caricaViaggi()">
@@ -45,7 +46,13 @@
 
 	<script type="text/javascript">
 		function caricaViaggi() {
-			document.getElementById("tabella").style.visibility = "visible";
+			if (document.getElementById("tabella").style.visibility == "visible") {
+				document.getElementById("tabella").style.visibility = "hidden";
+			}
+			else {
+				document.getElementById("tabella").style.visibility = "visible";
+			}
+			
 		}
 	</script>
 
