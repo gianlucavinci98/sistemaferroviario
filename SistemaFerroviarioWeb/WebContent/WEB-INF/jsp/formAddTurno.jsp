@@ -26,8 +26,7 @@
 			ID Treno: <input id="idTreno" name="idTreno" type="number" /> <br><br> 
 			Data (YYYY-MM-DD): <input id="data" name="data" type="text" /> <br><br>
 			<input type="submit" name="submit" formaction="all" value="Lista dei turni"> 
-<!-- 			<input disabled id="button" type="submit" name="submit" formaction="add" value="Aggiungi"> -->
-			<input id="button" type="submit" name="submit" formaction="add" value="Aggiungi">
+			<input disabled id="button" type="submit" name="submit" formaction="add" value="Aggiungi">
 		</form>
 	</div>
 
@@ -35,18 +34,56 @@
 
 	<div align="center">${message}</div>
 	
-<!-- 	<script type="text/javascript"> -->
-<!-- // 		const submitButton = document.getElementById("button"); -->
-<!-- // 		const dipendente = document.getElemenById("idDipendente"); -->
-<!-- // 		const treno = document.getElemenById("idTreno"); -->
-<!-- // 		const data = document.getElemenById("data"); -->
+	<script type="text/javascript">
+		const submitButton = document.getElementById("button");
+		const dipendente = document.getElementById("idDipendente");
+		const treno = document.getElementById("idTreno");
+		const data = document.getElementById("data");
+		var flag1 = false;
+		var flag2 = false;
+		var flag3 = false;
 		
-<!-- // 		submitButton.addEventListener("keyup", (e) => { -->
-<!-- // 			if (dipendente.value != NaN && treno.value != NaN && data.value != NaN) { -->
-<!-- // 				submitButton.disabled = false; -->
-<!-- // 			} -->
-<!-- // 		}); -->
-<!-- 	</script> -->
+		dipendente.addEventListener("input", (e) => {
+			const id = e.currentTarget.value;
+			
+			if (id != "") {
+				flag1 = true;
+				check(submitButton, flag1, flag2, flag3);
+			} else {
+				flag1 = false;
+				submitButton.disabled = true;
+			}
+		});
+		
+		treno.addEventListener("input", (e) => {
+			const id = e.currentTarget.value;
+			
+			if (id != "") {
+				flag2 = true;
+				check(submitButton, flag1, flag2, flag3);
+			} else {
+				flag2 = false;
+				submitButton.disabled = true;
+			}
+		});
+		
+		data.addEventListener("input", (e) => {
+			const id = e.currentTarget.value;
+			
+			if (id != "") {
+				flag3 = true;
+				check(submitButton, flag1, flag2, flag3);
+			} else {
+				flag3 = false;
+				submitButton.disabled = true;
+			}
+		});
+		
+		function check(button, flag1, flag2, flag3) {
+			if (flag1 && flag2 && flag3)
+				button.disabled = false;
+		}
+	</script>
 	
 </body>
 </html>

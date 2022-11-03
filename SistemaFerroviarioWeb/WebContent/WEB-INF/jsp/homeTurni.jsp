@@ -45,29 +45,29 @@
 	</div>
 
 	<script type="text/javascript">
-	const btn1 = document.getElementById("1");
-	const btn2 = document.getElementById("2");
-	const btn3 = document.getElementById("3");
-	const btn4 = document.getElementById("4");
-	const turno = document.getElementById("idTurno");
-	const dipendente = document.getElementById("idDipendente");
-	const treno = document.getElementById("idTreno");
-	const data = document.getElementById("data");
-
-	function check(e, btn) {
-		const id = e.currentTarget.value;
-		
-		if(id != ""){
-			btn.disabled = false;
-		} else {
-			btn.disabled = true;
+		const btn1 = document.getElementById("1");
+		const btn2 = document.getElementById("2");
+		const btn3 = document.getElementById("3");
+		const btn4 = document.getElementById("4");
+		const turno = document.getElementById("idTurno");
+		const dipendente = document.getElementById("idDipendente");
+		const treno = document.getElementById("idTreno");
+		const data = document.getElementById("data");
+	
+		function check(e, btn) {
+			const id = e.currentTarget.value;
+			
+			if (id != ""){
+				btn.disabled = false;
+			} else {
+				btn.disabled = true;
+			}
 		}
-	}
-
-	turno.addEventListener("input", (e) => check(e, btn1));
-	dipendente.addEventListener("input", (e) => check(e, btn2));
-	treno.addEventListener("input", (e) => check(e, btn3));
-	data.addEventListener("input", (e) => check(e, btn4));
+	
+		turno.addEventListener("input", (e) => check(e, btn1));
+		dipendente.addEventListener("input", (e) => check(e, btn2));
+		treno.addEventListener("input", (e) => check(e, btn3));
+		data.addEventListener("input", (e) => check(e, btn4));
 	</script>
 
 </body>
