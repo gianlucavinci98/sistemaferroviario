@@ -10,12 +10,11 @@ import org.springframework.web.bind.annotation.GetMapping;
 public class HomeController {
 	
 	@GetMapping("/home")
-	public String home(HttpSession session)
+	public String home()
 	{
-		//if(session.getAttribute("utente")!=null)
+		
 		return "home";
-		//else
-		//	return "redirect:/loginPage";
+	
 	}
-	// ciao andrea
+	
 }
