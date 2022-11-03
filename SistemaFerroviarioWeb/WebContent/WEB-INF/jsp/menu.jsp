@@ -49,7 +49,7 @@
 						<li><a href="/SistemaFerroviarioWeb/home/treno/builderTreno">Costruisci Treno</a></li>
 					</c:if>
 					<li><a href="/SistemaFerroviarioWeb/home/treno/infoTreno">Info Treno</a></li>
-					<li><a href="/SistemaFerroviarioWeb/home/treno/formAddTreno">Aggiungi Treno</a></li>
+<!-- 					<li><a href="/SistemaFerroviarioWeb/home/treno/formAddTreno">Aggiungi Treno</a></li> -->
 				</ul>
 				
 			</li>
