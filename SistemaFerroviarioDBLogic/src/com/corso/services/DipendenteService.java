@@ -14,17 +14,17 @@ import corso.spring.Beans;
 public class DipendenteService {
 	
 	BeanFactory factory = new AnnotationConfigApplicationContext(Beans.class);
-	DipendenteDAO dao=  factory.getBean("dipendenteDAO", DipendenteDAO.class);
+	DipendenteDAO DipendenteDAO=  factory.getBean("dipendenteDAO", DipendenteDAO.class);
 	
 	public void getAddDipendente(Dipendente dip) {
 		
-	    dao.addDipendente(dip);
+		DipendenteDAO.addDipendente(dip);
 	}
 
 	
 	public Dipendente getFindDipendente(Integer id) {
 		
-		Dipendente d=dao.findDipendente(id);
+		Dipendente d=DipendenteDAO.findDipendente(id);
 		return d;
 	}
 	
@@ -32,7 +32,7 @@ public class DipendenteService {
 		
 		List<Dipendente> list= new ArrayList<>();
 		for(Integer i : id) {
-		Dipendente d=dao.findDipendente(i);
+		Dipendente d=DipendenteDAO.findDipendente(i);
 		list.add(d);
 		}
 		return list;
@@ -41,20 +41,20 @@ public class DipendenteService {
 	
 	public List<Dipendente> getAllDipendenti() {
 		
-		List<Dipendente> list= dao.allDipendenti();
+		List<Dipendente> list= DipendenteDAO.allDipendenti();
 		return list;
 	}
 
 	
 	public void getRemoveDipendente(Integer id) {
 		
-		dao.removeDipendente(id);
+		DipendenteDAO.removeDipendente(id);
 	}
 
 	
 	public List<Dipendente> getFindForRuolo(String mansione) {
 		
-		List<Dipendente> lista = dao.findForRuolo(mansione);
+		List<Dipendente> lista = DipendenteDAO.findForRuolo(mansione);
 		return lista;
 	}
 

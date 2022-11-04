@@ -13,29 +13,27 @@ import corso.model.filter.ViaggioFilter;
 import corso.spring.Beans;
 
 public class ViaggioService {
+	BeanFactory factory = new AnnotationConfigApplicationContext(Beans.class);
+	ViaggioDAO viaggioDAO =  factory.getBean("viaggioDAO", ViaggioDAO.class);
+	
+	public Viaggio findViaggioById(int viaggioID) {
+
+		return viaggioDAO .find(viaggioID);
+	}
 
 	
 	public List<Viaggio> getAllViaggi() {
-		@SuppressWarnings("resource")
-		BeanFactory factory = new AnnotationConfigApplicationContext(Beans.class);
-		ViaggioDAO dao=  factory.getBean("viaggioDAO", ViaggioDAO.class);
-		List<Viaggio> list= dao.allViaggi();
+		List<Viaggio> list= viaggioDAO .allViaggi();
 		return list;
 	}
 	
 	public void add(Viaggio viaggio)
 	{
-		@SuppressWarnings("resource")
-		BeanFactory factory = new AnnotationConfigApplicationContext(Beans.class);
-		ViaggioDAO daoViaggio =  factory.getBean("viaggioDAO", ViaggioDAO.class);
-		daoViaggio.add(viaggio);
+		viaggioDAO.add(viaggio);
 	}
 	
 	public List<Viaggio> getFindByFilter(ViaggioFilter filter){
-		@SuppressWarnings("resource")
-		BeanFactory factory = new AnnotationConfigApplicationContext(Beans.class);
-		ViaggioDAO dao=  factory.getBean("viaggioDAO", ViaggioDAO.class);
-		List<Viaggio> list= dao.findByFilter(filter);
+		List<Viaggio> list= viaggioDAO .findByFilter(filter);
 		return list;
 	}
 }

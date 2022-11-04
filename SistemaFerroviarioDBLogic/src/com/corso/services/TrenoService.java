@@ -10,23 +10,20 @@ import corso.model.Treno;
 import corso.spring.Beans;
 
 public class TrenoService {
-	@SuppressWarnings("resource")
 	private BeanFactory factory = new AnnotationConfigApplicationContext(Beans.class);
-	private TrenoDAO daoTreno = factory.getBean("trenoDAO", TrenoDAO.class);
+	private TrenoDAO trenoDAO = factory.getBean("trenoDAO", TrenoDAO.class);
 	
 	public Treno findTreno(int idTreno)
 	{
-		return daoTreno.find(idTreno);
+		return trenoDAO.find(idTreno);
 	}
 
 	public Treno addTreno(String sequenza) throws Exception {
-		BeanFactory factory = new AnnotationConfigApplicationContext(Beans.class);
-		TrenoDAO dao = factory.getBean("trenoDAO",TrenoDAO.class);
-		return dao.add(sequenza);
+		return trenoDAO.add(sequenza);
 	}
 	
 	public List<Treno> getAll()
 	{
-		return daoTreno.listAll();
+		return trenoDAO.listAll();
 	}
 }

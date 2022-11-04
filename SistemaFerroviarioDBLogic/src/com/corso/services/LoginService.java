@@ -8,20 +8,16 @@ import corso.model.Utente;
 import corso.spring.Beans;
 
 public class LoginService {
+	BeanFactory factory = new AnnotationConfigApplicationContext(Beans.class);
+	UtenteDAO loginDAO = factory.getBean("utenteDAO",UtenteDAO.class);
 	
 	public Utente getUser(String username) {
-		@SuppressWarnings("resource")
-		BeanFactory factory = new AnnotationConfigApplicationContext(Beans.class);
-		UtenteDAO dao = factory.getBean("utenteDAO",UtenteDAO.class);
-		Utente u = dao.findUserByUsername(username);
+		Utente u = loginDAO.findUserByUsername(username);
 		return u;
 	}
 	
 	public void addDipendInUtente(Utente u, Dipendente d) {
-		@SuppressWarnings("resource")
-		BeanFactory factory = new AnnotationConfigApplicationContext(Beans.class);
-		UtenteDAO dao = factory.getBean("utenteDAO",UtenteDAO.class);
-		dao.addUserDip(u, d);
+		loginDAO.addUserDip(u, d);
 	}
 
 }

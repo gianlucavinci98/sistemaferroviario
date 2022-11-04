@@ -3,15 +3,16 @@ package corso.spring;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.context.annotation.Scope;
 
 import corso.DAOs.DipendenteDAO;
+import corso.DAOs.PrenotazioneDAO;
 import corso.DAOs.StazioneDAO;
 import corso.DAOs.TrenoDAO;
 import corso.DAOs.TurnoDAO;
 import corso.DAOs.UtenteDAO;
 import corso.DAOs.ViaggioDAO;
 import corso.DAOs.impl.DipendenteDAOImpl;
+import corso.DAOs.impl.PrenotazioneDAOImpl;
 import corso.DAOs.impl.StazioneDAOImpl;
 import corso.DAOs.impl.TrenoDAOImpl;
 import corso.DAOs.impl.TurnoDAOImpl;
@@ -57,6 +58,12 @@ public class Beans extends BeansConfig{
 	@Bean(name="viaggioDAO") 
 	public ViaggioDAO getViaggioDAO (){
 		ViaggioDAO dao = new ViaggioDAOImpl();
+		return dao; 
+	}
+	
+	@Bean(name="prenotazioneDAO") 
+	public PrenotazioneDAO getPrenotazioneDAO (){
+		PrenotazioneDAO dao = new PrenotazioneDAOImpl();
 		return dao; 
 	}
 

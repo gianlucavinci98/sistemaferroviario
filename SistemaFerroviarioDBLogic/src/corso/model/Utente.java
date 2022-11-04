@@ -1,9 +1,13 @@
 package corso.model;
 
+import java.util.List;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
@@ -23,6 +27,11 @@ public class Utente {
 	@OneToOne
 	@JoinColumn(name="idDipendente", referencedColumnName="idDipendente")
 	private Dipendente dipendente;
+	
+	
+	@OneToMany (mappedBy = "utente", fetch = FetchType.EAGER)
+	List<Prenotazione> prenotazioni;
+	
 	
 	
 	public Utente() {

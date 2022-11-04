@@ -44,7 +44,6 @@ public class ViaggioController {
 		List<Stazione> listaStazioni = ss.getAll();
 		m.addAttribute("listaTreni", listaTreni);
 		m.addAttribute("listaStazioni", listaStazioni);
-		//m.addAttribute("viaggio", new Viaggio());
 		return "formAddViaggio";
 	}
 	

@@ -19,7 +19,13 @@ import corso.model.filter.ViaggioFilter;
 public class ViaggioDAOImpl implements ViaggioDAO{
 	
 	@PersistenceContext
-	EntityManager manager;
+	 EntityManager manager;
+	
+	@Override
+	public Viaggio find(int idViaggio)
+	{
+		return  manager.find(Viaggio.class, idViaggio);
+	}
 	
 	public Stazione findArrivo(int idViaggio)
 	{

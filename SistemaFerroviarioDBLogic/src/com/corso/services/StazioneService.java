@@ -11,21 +11,21 @@ import corso.spring.Beans;
 public class StazioneService {
 	
 	private BeanFactory factory = new AnnotationConfigApplicationContext(Beans.class);
-	private StazioneDAO daoStazione = factory.getBean("stazioneDAO", StazioneDAO.class);
+	private StazioneDAO TrenoDAO = factory.getBean("stazioneDAO", StazioneDAO.class);
 	
 	public List<Stazione> getAll()
 	{
-		return daoStazione.getAll();
+		return TrenoDAO.getAll();
 	}
 	
 	public Stazione findStazione(Integer idStazione)
 	{
-		return daoStazione.find(idStazione);
+		return TrenoDAO.find(idStazione);
 	}
 	
 	public Stazione findStazioneByName(String nomeStazione)
 	{
-		return daoStazione.findByName(nomeStazione);
+		return TrenoDAO.findByName(nomeStazione);
 	}
 
 }

@@ -14,6 +14,7 @@
 	<nav>
 		<ul class="menu">
 			<li><a href = "/SistemaFerroviarioWeb/home">Home</a></li>
+			<c:if test="${sessionScope.utente.livello>=1}">
 			<li class="has-children"><a href = "#">Dipendente</a>
 					<ul class="submenu">
 					<c:if test="${sessionScope.utente.livello<2}">
@@ -43,16 +44,23 @@
 					</c:if>
 					</ul>
 			</li>
+			</c:if>
 			<li class="has-children"><a href = "#">Treno</a>
 				<ul class=submenu>
 					<c:if test="${sessionScope.utente.livello>1}">
 						<li><a href="/SistemaFerroviarioWeb/home/treno/builderTreno">Costruisci Treno</a></li>
 					</c:if>
 					<li><a href="/SistemaFerroviarioWeb/home/treno/infoTreno">Info Treno</a></li>
-<!-- 					<li><a href="/SistemaFerroviarioWeb/home/treno/formAddTreno">Aggiungi Treno</a></li> -->
 				</ul>
 				
 			</li>
+			
+			<c:if test="${sessionScope.utente.livello<1}">
+			<li><a href="/SistemaFerroviarioWeb/home/prenotazione/pagePrenotazione">Prenotazioni</a></li>
+			</c:if>
+			<c:if test="${sessionScope.utente.livello>1}">
+				<li><a href="/SistemaFerroviarioWeb/home/prenotazione/allPrenotazioni">Prenotazioni</a></li>
+			</c:if>
 			<li><a href="/SistemaFerroviarioWeb/logout">Logout</a></li>	
 		</ul>
 	</nav>
