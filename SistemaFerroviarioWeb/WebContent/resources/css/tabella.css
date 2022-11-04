@@ -1,6 +1,6 @@
 @charset "ISO-8859-1";
 
-input {
+input, button, select {
 	background-color: #404040;
 	color: #f2f2f2;
 	border: 2px solid #9933ff;
@@ -11,12 +11,13 @@ input {
 	display: inline-block;
 }
 
-input:hover, input:active {
+input:hover, input:active, button:hover, button:active, 
+select:hover, select:active {
 	background-color: #dab3ff;
 	color: black;
 }
 
-input:disabled {
+input:disabled, button:disabled {
 	opacity: 0.6;
 	cursor: not-allowed;
 }

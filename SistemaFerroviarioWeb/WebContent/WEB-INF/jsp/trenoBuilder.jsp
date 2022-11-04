@@ -5,6 +5,7 @@
 <html>
 <head>
 <link href="<c:url value="/resources/css/trenoBuilder.css" />" rel="stylesheet">
+<link href="<c:url value="/resources/css/tabella.css" />" rel="stylesheet">
 <meta charset="ISO-8859-1">
 <title>Builder Treno</title>
 <script type="text/javascript">
