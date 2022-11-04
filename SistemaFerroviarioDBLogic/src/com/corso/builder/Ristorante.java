@@ -19,7 +19,10 @@ public class Ristorante extends Vagone{
 		return "Ristorante [nome=" + nome + ", peso=" + peso + ", lunghezza=" + lunghezza + ", getClass()=" + getClass()
 				+ ", hashCode()=" + hashCode() + ", toString()=" + super.toString() + "]";
 	}
-	
-	
+
+
+	public static int getnPiatti() {
+		return nPiatti;
+	}	
 
 }
