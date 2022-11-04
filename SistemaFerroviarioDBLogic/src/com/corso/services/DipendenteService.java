@@ -13,7 +13,6 @@ import corso.spring.Beans;
 
 public class DipendenteService {
 	
-	@SuppressWarnings("resource")
 	BeanFactory factory = new AnnotationConfigApplicationContext(Beans.class);
 	DipendenteDAO dao=  factory.getBean("dipendenteDAO", DipendenteDAO.class);
 	
