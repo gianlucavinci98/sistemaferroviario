@@ -1,6 +1,8 @@
 @charset "ISO-8859-1";
 
-
+#display {
+	background-color: white;
+}
 
 #caratteristiche{
 	background: rgb(238, 238, 238);
@@ -10,4 +12,6 @@
 	-webkit-box-shadow: 5px 5px 10px 2px #333333;
 	-moz-box-shadow: 5px 5px 10px 2px #333333;
 	color: black;
+	margin: 0 auto;
 }
+

@@ -6,6 +6,7 @@
 <head>
 <meta charset="ISO-8859-1">
 <title>Insert title here</title>
+	<link href="<c:url value="/resources/css/tabella.css" />" rel="stylesheet">
 	<link href="<c:url value="/resources/css/visualizzaTreno.css" />" rel="stylesheet">
 </head>
 <body>
@@ -14,7 +15,7 @@
 
 </div>
 
-<div id="display"></div>
+<div id="display"></div><br><br>
 
 <div id="caratteristiche">
 	<br>
@@ -25,10 +26,35 @@
 	Sigla: ${sessionScope.treno.sigla }<br>
 </div>
 
+<c:if test="${sessionScope.treno.viaggi.size() > 0}">
+<br>
+<input id="btn1" type="button" value="Carica Viaggi" onclick="caricaViaggi()">
+<br><br>
+</c:if>
+	<c:if test="${sessionScope.treno.viaggi.size() > 0}">
+	<table id="tabella" style="visibility:hidden; width:100%">
+		<tr>
+			<th>Codice Viaggio</th>
+			<th>Partenza</th>
+			<th>Arrivo</th>
+			<th>Data</th>
+		</tr>
+		<c:forEach var="viaggio" items="${sessionScope.treno.viaggi}">
+			<tr align="center">
+				<td>${viaggio.idViaggio}</td>
+				<td>${viaggio.partenza.nomeStazione}, ${viaggio.partenza.citta}</td>
+				<td>${viaggio.arrivo.nomeStazione}, ${viaggio.arrivo.citta}</td>
+				<td>${viaggio.dataViaggio}</td>
+			</tr>
+		</c:forEach>
+	</table>
+	</c:if>
+
+
 
 <script>
 	var display = document.getElementById("display");
-	var sequenza = "${sessionScope.sequenza}";
+	var sequenza = "${sessionScope.treno.sigla}";
 	var img1 = [];
 	var i = 0;
 	for(i=0;i<sequenza.length;i++){
@@ -38,6 +64,17 @@
 			img1[i] = img;		
 			document.getElementById("display").append(img1[i]);
 	}
+	
+	function caricaViaggi() {
+		if (document.getElementById("tabella").style.visibility == "visible") {
+			document.getElementById("tabella").style.visibility = "hidden";
+		}
+		else {
+			document.getElementById("tabella").style.visibility = "visible";
+		}
+		
+	}
+	
 </script>
 
 </body>

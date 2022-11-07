@@ -24,11 +24,11 @@ public class TrenoController {
 	}
 
 	@GetMapping("/getTreno")
-	public String homeFerrovia(Model m, @ModelAttribute("treno") Treno treno) {
+	public String homeFerrovia(Model m, @ModelAttribute("treno") Treno treno,HttpSession session) {
 		TrenoService tService = new TrenoService();
 		treno = tService.findTreno(treno.getIdTreno());
-		m.addAttribute("result", treno);
-		return "treno";
+		session.setAttribute("treno", treno);
+		return "visualizzaTreno";
 	}
 	
 	@GetMapping("/formAddTreno")
@@ -58,15 +58,12 @@ public class TrenoController {
 			TrenoService service = new TrenoService();
 			Treno treno = service.addTreno(sequenza);
 			session.setAttribute("treno", treno);
-			session.setAttribute("sequenza", sequenza);
-			
-			m.addAttribute("sequenza",sequenza);
 			return "/azienda1";
 		}
 	
 	
 	@GetMapping("/visualizzaTreno")
-	public String printTreno() {
+	public String printTreno(HttpSession session) {
 		return "/visualizzaTreno";
 	}
 
