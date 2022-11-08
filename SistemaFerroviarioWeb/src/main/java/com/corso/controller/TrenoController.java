@@ -79,10 +79,11 @@ public class TrenoController {
 	}
 	
 	@GetMapping("/searchByType")
-	public String cerca(@RequestParam String tipo) {
+	public String cerca(@RequestParam String tipo,Model m) {
 		TrenoService service = new TrenoService();
 		List<Treno> t = service.findForType(tipo);
-		return "/byType";
+		m.addAttribute("list",t);
+		return "/visualizzaTreni";
 	}
 		
 	

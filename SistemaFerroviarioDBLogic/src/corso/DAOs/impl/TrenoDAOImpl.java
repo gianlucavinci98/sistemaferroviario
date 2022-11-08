@@ -55,7 +55,7 @@ public class TrenoDAOImpl implements TrenoDAO{
 
 	@Override
 	public List<Treno> findByType(String type) {
-		String jpql = "from Treno where tipo:=tipo";
+		String jpql = "from Treno where tipo=:tipo";
 		Query q = manager.createQuery(jpql,Treno.class);
 		q.setParameter("tipo", type);
 		List<Treno> treni = q.getResultList();
