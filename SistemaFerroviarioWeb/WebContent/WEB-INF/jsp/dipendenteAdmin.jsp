@@ -19,7 +19,7 @@
 <tr><th>Id</th><th>Nome</th><th>Cognome</th><th>Ruolo</th><th>Elimina</th>
 <c:forEach var="i" begin="0" end="${dimensione}" items="${lista}">
 	<tr align=center>	
-	<td><c:out value="${i.idDipendente}"></c:out></td>
+	<td><a href="visualizza/${i.idDipendente}"><c:out value="${i.idDipendente}"></c:out></a></td>
 	<td><c:out value="${i.nome}"></c:out></td>
 	<td><c:out value="${i.cognome}"></c:out></td>
 	<td><c:out value="${i.ruolo}"></c:out></td>

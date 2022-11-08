@@ -1,5 +1,7 @@
 package com.corso.controller;
 
+import java.util.List;
+
 import javax.servlet.http.HttpSession;
 
 import org.springframework.stereotype.Controller;
@@ -66,5 +68,14 @@ public class TrenoController {
 	public String printTreno(HttpSession session) {
 		return "/visualizzaTreno";
 	}
+	
+	@GetMapping("/cercaPerTipologia")
+	public String cerca(@RequestParam String tipo,Model m) {
+		m.addAttribute("tipo", tipo);
+		return "/visualizzaTreni";
+		
+	}
+		
+	
 
 }

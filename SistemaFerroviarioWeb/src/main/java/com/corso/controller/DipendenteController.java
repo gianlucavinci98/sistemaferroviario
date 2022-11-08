@@ -1,6 +1,6 @@
 package com.corso.controller;
 
-import java.time.LocalDate;
+
 import java.util.List;
 
 import org.springframework.stereotype.Controller;
@@ -12,7 +12,6 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import com.corso.services.DipendenteService;
 import com.corso.services.LoginService;
-import com.corso.services.TrenoService;
 import com.corso.services.TurnoService;
 
 import corso.model.Dipendente;
@@ -65,6 +64,18 @@ public class DipendenteController {
 		DipendenteService service = new DipendenteService();
 		service.getRemoveDipendente(id);
 		return "redirect:/home/dipendente/allDipendentiAdmin";
+	}
+	
+	@GetMapping("visualizza/{id}")
+	public String viewDipendente(@PathVariable Integer id,Model m) {
+		DipendenteService service = new DipendenteService();
+		TurnoService tservice = new TurnoService();
+		
+		Dipendente d = service.getFindDipendente(id);
+		List<Turno> turni = tservice.findByDipendente(d);
+		m.addAttribute("dipendente", d);
+		m.addAttribute("turni", turni);
+		return "visualizzaDipendente";
 	}
 	
 	@GetMapping("/dipendentiForRuolo")

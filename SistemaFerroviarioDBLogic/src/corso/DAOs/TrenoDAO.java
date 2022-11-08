@@ -11,6 +11,5 @@ public interface TrenoDAO {
 	public Treno find(int idTreno);	
 	public Treno add(String sequenza) throws Exception;	
 	public List<Treno> listAll();
-	public List<Treno> findByTipo(String tipo);
 	public List<Viaggio> getViaggiByTreno(int idTreno);
 }

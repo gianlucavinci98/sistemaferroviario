@@ -21,6 +21,7 @@ public class TrenoService {
 	public Treno addTreno(String sequenza) throws Exception {
 		return trenoDAO.add(sequenza);
 	}
+
 	
 	public List<Treno> getAll()
 	{
