@@ -8,6 +8,7 @@ import javax.persistence.Query;
 import javax.transaction.Transactional;
 
 
+
 import corso.DAOs.DipendenteDAO;
 import corso.model.Dipendente;
 
@@ -18,8 +19,13 @@ public class DipendenteDAOImpl implements DipendenteDAO{
 
 	@Override
 	@Transactional
-	public void addDipendente(Dipendente dip) {
-		manager.persist(dip);
+	public void addDipendente(Integer idDipendente,String nome,String cognome, String ruolo) {
+		Dipendente d = new Dipendente();
+		d.setIdDipendente(idDipendente);
+		d.setNome(nome);
+		d.setCognome(cognome);
+		d.setRuolo(ruolo);
+		manager.persist(d);
 		}
 
 	@Override

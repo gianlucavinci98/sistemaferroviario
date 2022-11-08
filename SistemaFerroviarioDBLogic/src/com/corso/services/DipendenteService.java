@@ -16,9 +16,9 @@ public class DipendenteService {
 	BeanFactory factory = new AnnotationConfigApplicationContext(Beans.class);
 	DipendenteDAO DipendenteDAO=  factory.getBean("dipendenteDAO", DipendenteDAO.class);
 	
-	public void getAddDipendente(Dipendente dip) {
+	public void getAddDipendente(Integer idDipendente,String nome,String cognome, String ruolo) {
 		
-		DipendenteDAO.addDipendente(dip);
+		DipendenteDAO.addDipendente(idDipendente, nome, cognome, ruolo);
 	}
 
 	

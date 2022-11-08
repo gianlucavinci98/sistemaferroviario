@@ -105,12 +105,7 @@ public class DipendenteController {
 	public String addDipendente(@RequestParam Integer idDipendente, @RequestParam String nome,
 			@RequestParam String cognome, @RequestParam String ruolo, Model m) {
 		DipendenteService dipService = new DipendenteService();
-		Dipendente d = new Dipendente();
-		d.setIdDipendente(idDipendente);
-		d.setNome(nome);
-		d.setCognome(cognome);
-		d.setRuolo(ruolo);
-		dipService.getAddDipendente(d);
+		dipService.getAddDipendente(idDipendente,nome,cognome,ruolo);
 	    
 		m.addAttribute("message", "Dipendente inserito con successo!");
 		return "formAddDipendente";
