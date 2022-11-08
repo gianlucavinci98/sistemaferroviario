@@ -14,7 +14,7 @@ public interface ViaggioDAO {
 	
 	public Stazione findArrivo(int idViaggio);
 	public Stazione findPartenza(int idViaggio);
-	public void add(Viaggio viaggio);
+	public Viaggio add(Viaggio viaggio);
     public  List<Viaggio> allViaggi();
     public  List<Viaggio> findByFilter(ViaggioFilter filter);
     public Viaggio find(int idViaggio);

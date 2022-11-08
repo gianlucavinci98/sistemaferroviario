@@ -27,9 +27,9 @@ public class ViaggioService {
 		return list;
 	}
 	
-	public void add(Viaggio viaggio)
+	public Viaggio add(Viaggio viaggio)
 	{
-		viaggioDAO.add(viaggio);
+		return viaggioDAO.add(viaggio);
 	}
 	
 	public List<Viaggio> getFindByFilter(ViaggioFilter filter){

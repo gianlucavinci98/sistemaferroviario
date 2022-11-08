@@ -36,6 +36,11 @@ public class Turno {
 	@Column(name="dataTurno")
 	private LocalDate dataTurno;
 	
+	@ManyToOne(optional=false, fetch=FetchType.EAGER)
+	@Fetch(value=FetchMode.SELECT)
+	@JoinColumn(name="idViaggio", nullable=false, updatable=false)
+	private Viaggio viaggio;
+	
 	public Turno() {}
 
 	public Integer getIdTurno() {
@@ -68,6 +73,15 @@ public class Turno {
 
 	public void setDataTurno(LocalDate dataTurno) {
 		this.dataTurno = dataTurno;
+	}
+
+
+	public Viaggio getViaggio() {
+		return viaggio;
+	}
+
+	public void setViaggio(Viaggio viaggio) {
+		this.viaggio = viaggio;
 	}
 
 	@Override

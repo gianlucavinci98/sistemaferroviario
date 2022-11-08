@@ -78,6 +78,7 @@
 		    <br><br>
 					
 			Data (YYYY-MM-DD): <input id="data" name="data" type="text" /> <br><br>
+			ID Dipendente: <input id="idDipendente" name="idDipendente" type="text"><br><br>
 			
 			<input type="submit" name="submit" formaction="addViaggio" value="AGGIUNGI"> 
 		</form>
