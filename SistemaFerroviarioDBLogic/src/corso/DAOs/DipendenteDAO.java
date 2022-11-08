@@ -14,5 +14,7 @@ public interface DipendenteDAO {
 	public Dipendente findDipendente(Integer id);
 	public void removeDipendente(Integer id);
 	public List<Dipendente> findForRuolo(String mansione);
+	public List<Dipendente> findByName(String nome);
+	public List<Dipendente> findBySurname(String cognome);
 
 }

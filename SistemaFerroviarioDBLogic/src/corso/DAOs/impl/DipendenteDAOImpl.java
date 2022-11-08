@@ -55,4 +55,24 @@ public class DipendenteDAOImpl implements DipendenteDAO{
     		return l;	
     }
 
+	@Override
+	public List<Dipendente> findByName(String nome) {
+		String jpql= "from Dipendente where nome =: nome";
+		Query q= manager.createQuery(jpql,Dipendente.class);
+		q.setParameter("nome", nome);
+		@SuppressWarnings("unchecked")
+		List<Dipendente> lis = q.getResultList();
+		return lis;
+	}
+
+	@Override
+	public List<Dipendente> findBySurname(String cognome) {
+		String jpql= "from Dipendente where cognome =: cognome";
+		Query q= manager.createQuery(jpql,Dipendente.class);
+		q.setParameter("cognome", cognome);
+		@SuppressWarnings("unchecked")
+		List<Dipendente> list = q.getResultList();
+		return list;
+	}
+
 }

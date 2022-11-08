@@ -52,6 +52,20 @@ Ruolo: <input type="text" name="ruolo">
 <input type="submit" name="submit" formaction="dipendentiForRuoloAdmin" value="cerca">
 </form>
 </div>
+<br><br>
+<div align="center">
+<form  >
+Nome: <input type="text" name="nome" >
+<input type="submit" name="submit" formaction="cercaPerNomeAdmin" value="cerca">
+</form>
+</div>
+<br><br>
+<div align="center">
+<form  >
+Cognome: <input type="text" name="cognome" >
+<input type="submit" name="submit" formaction="cercaPerCognomeAdmin" value="cerca">
+</form>
+</div>
 
 </body>
 </html>
