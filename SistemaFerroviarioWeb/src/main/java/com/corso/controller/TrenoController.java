@@ -8,6 +8,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
@@ -67,6 +68,14 @@ public class TrenoController {
 	@GetMapping("/visualizzaTreno")
 	public String printTreno(HttpSession session) {
 		return "/visualizzaTreno";
+	}
+	
+	@GetMapping("/visualizza/{id}")
+	public String visualizzaTreno(@PathVariable Integer id,HttpSession session) {
+		TrenoService service = new TrenoService();
+		Treno t = service.findTreno(id);
+		session.setAttribute("treno", t);
+		return "/visualizzaTrenoId";
 	}
 	
 	@GetMapping("/visualizzaTreni")

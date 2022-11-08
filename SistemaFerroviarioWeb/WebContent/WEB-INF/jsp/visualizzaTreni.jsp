@@ -25,7 +25,7 @@
 			</tr>
 			<c:forEach var="treno" items="${list}">
 				<tr align="center">
-					<td>${treno.idTreno}</td>
+					<td><a href="visualizza/${treno.idTreno}">${treno.idTreno}</a></td>
 					<td>${treno.tipo}</td>
 					<td>${treno.sigla}</td>
 					<td>${treno.peso}</td>
