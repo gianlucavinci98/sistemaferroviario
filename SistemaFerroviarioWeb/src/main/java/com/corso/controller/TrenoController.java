@@ -69,11 +69,20 @@ public class TrenoController {
 		return "/visualizzaTreno";
 	}
 	
-	@GetMapping("/cercaPerTipologia")
-	public String cerca(@RequestParam String tipo,Model m) {
-		m.addAttribute("tipo", tipo);
+	@GetMapping("/visualizzaTreni")
+	public String visualizza(Model m) {
+		TrenoService service = new TrenoService();
+		List<Treno> all = service.getAll();
+		m.addAttribute("list",all);
 		return "/visualizzaTreni";
 		
+	}
+	
+	@GetMapping("/searchByType")
+	public String cerca(@RequestParam String tipo) {
+		TrenoService service = new TrenoService();
+		List<Treno> t = service.findForType(tipo);
+		return "/byType";
 	}
 		
 	

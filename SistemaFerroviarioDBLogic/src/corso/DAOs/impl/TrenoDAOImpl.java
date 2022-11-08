@@ -53,4 +53,13 @@ public class TrenoDAOImpl implements TrenoDAO{
 		return treno.getViaggi();
 	}
 
+	@Override
+	public List<Treno> findByType(String type) {
+		String jpql = "from Treno where tipo:=tipo";
+		Query q = manager.createQuery(jpql,Treno.class);
+		q.setParameter("tipo", type);
+		List<Treno> treni = q.getResultList();
+		return treni;
+	}
+
 }

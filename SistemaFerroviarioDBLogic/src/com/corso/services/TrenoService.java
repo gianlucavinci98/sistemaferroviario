@@ -27,4 +27,9 @@ public class TrenoService {
 	{
 		return trenoDAO.listAll();
 	}
+	
+	public List<Treno> findForType(String type){
+		return trenoDAO.findByType(type);
+	}
+	
 }

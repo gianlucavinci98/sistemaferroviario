@@ -18,13 +18,5 @@
 	ID treno: <form:input path="idTreno"/> <br><br>     
 	<input type="submit" name="submit" formaction="getTreno" value="TROVA"> 
 	</form:form>
-	<br>
-	<br>
-	
-	<form>
-	Tipo Treno <input type="text" id="tipo" name="tipo">
-	<input type="submit" name="submit" formaction="cercaPerTipologia">
-	</form>
-
 </body>
 </html>
