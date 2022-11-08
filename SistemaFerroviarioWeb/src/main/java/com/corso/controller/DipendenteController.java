@@ -135,4 +135,43 @@ public class DipendenteController {
 		return "associaUtenteDip";
 	}
 	
+	@GetMapping("/cercaPerNomeAdmin")
+	public String findNome(@RequestParam String nome, Model m) {
+		DipendenteService ds= new DipendenteService();
+		List<Dipendente> l = ds.getFindByName(nome);
+		m.addAttribute("dimensione", l.size());
+		m.addAttribute("lista",l);
+		return "dipendenteAdmin";
+		
+	}
+	
+	@GetMapping("/cercaPerCognomeAdmin")
+	public String findCognome(@RequestParam String cognome, Model m) {
+		DipendenteService ds= new DipendenteService();
+		List<Dipendente> li = ds.getFindBySurname(cognome);
+		m.addAttribute("dimensione", li.size());
+		m.addAttribute("lista",li);
+		return "dipendenteAdmin";
+		
+	}
+	
+	@GetMapping("/cercaPerNome")
+	public String findNome2(@RequestParam String nome, Model m) {
+		DipendenteService ds= new DipendenteService();
+		List<Dipendente> l = ds.getFindByName(nome);
+		m.addAttribute("dimensione", l.size());
+		m.addAttribute("lista",l);
+		return "dipendente";
+		
+	}
+	
+	@GetMapping("/cercaPerCognome")
+	public String findCognome2(@RequestParam String cognome, Model m) {
+		DipendenteService ds= new DipendenteService();
+		List<Dipendente> li = ds.getFindBySurname(cognome);
+		m.addAttribute("dimensione", li.size());
+		m.addAttribute("lista",li);
+		return "dipendente";
+		
+	}
 }

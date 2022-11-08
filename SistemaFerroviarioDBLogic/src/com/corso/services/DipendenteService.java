@@ -57,8 +57,15 @@ public class DipendenteService {
 		List<Dipendente> lista = DipendenteDAO.findForRuolo(mansione);
 		return lista;
 	}
-
 	
+	public List<Dipendente> getFindByName(String nome){
+	    List<Dipendente> lis= DipendenteDAO.findByName(nome);
+	    return lis;
+	}
 	
+	public List<Dipendente> getFindBySurname(String cognome){
+		List<Dipendente> listaa= DipendenteDAO.findBySurname(cognome);
+		return listaa;
+		}
 
 }
