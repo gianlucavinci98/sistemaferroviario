@@ -1,5 +1,6 @@
 package corso.DAOs.impl;
 
+import java.sql.Date;
 import java.time.LocalDate;
 import java.util.List;
 import java.util.stream.Collectors;
@@ -85,7 +86,7 @@ public class TurnoDAOImpl implements TurnoDAO {
 	}
 
 	@Override
-	public List<Dipendente> findDipendentiByData(LocalDate data) {
+	public List<Dipendente> findDipendentiByData(Date data) {
 		String jpql = "SELECT dipendente " +
 					  "FROM Turno " +
 					  "WHERE dataTurno = :data";
@@ -95,6 +96,19 @@ public class TurnoDAOImpl implements TurnoDAO {
 		@SuppressWarnings("unchecked")
 		List<Dipendente> l = q.getResultList();
 		return l;
+	}
+
+	@Override
+	public List<Dipendente> findDipendentiByViaggio(Integer idViaggio) {
+		String jpql = "SELECT dipendente " +
+				  "FROM Turno " +
+				  "WHERE idViaggio = :idViaggio";
+	
+	Query q = manager.createQuery(jpql, Dipendente.class);
+	q.setParameter("idViaggio", idViaggio);
+	@SuppressWarnings("unchecked")
+	List<Dipendente> l = q.getResultList();
+	return l;
 	}
 	
 }

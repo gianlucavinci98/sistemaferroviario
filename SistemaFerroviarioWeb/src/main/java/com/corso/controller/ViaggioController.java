@@ -7,6 +7,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
@@ -54,30 +55,14 @@ public class ViaggioController {
 	public String addViaggio(@RequestParam(name = "treno") Integer idTreno,
 			@RequestParam(name = "partenza") Integer idPartenza,
 			@RequestParam(name = "arrivo") Integer idArrivo,
-			@RequestParam(name = "data") String data,@RequestParam Integer idDipendente)
+			@RequestParam(name = "data") String data,@RequestParam List<Integer> idDipendente)
 	{
-		TrenoService trenoService = new TrenoService();
-		StazioneService stazioneService = new StazioneService();
-		ViaggioService viaggioService = new ViaggioService();
-		DipendenteService dipendenteService = new DipendenteService();
-		TurnoService turnoService = new TurnoService();
 		
-		Dipendente dipendente = dipendenteService.getFindDipendente(idDipendente);
-		Treno treno = trenoService.findTreno(idTreno);
-		Stazione partenza = stazioneService.findStazione(idPartenza);
-		Stazione arrivo = stazioneService.findStazione(idArrivo);
-		Date dataViaggio = Date.valueOf(LocalDate.parse(data));
+		ViaggioService vs= new ViaggioService();
+		Viaggio v= vs.addViaggioTurno(idPartenza, idArrivo, idTreno, data);
 		
-		Viaggio viaggio = new Viaggio(partenza, arrivo, treno, dataViaggio);
-		viaggio = viaggioService.add(viaggio);
-		
-		Turno t = new Turno();
-		t.setDipendente(dipendente);
-		t.setTreno(treno);
-		t.setViaggio(viaggio);
-		LocalDate dataTurno = LocalDate.parse(data);
-		t.setDataTurno(dataTurno);
-		turnoService.addTurno(t);
+		TurnoService ts= new TurnoService();
+		ts.addViaggioTurnoDipendente(idDipendente, v);
 		return "home";
 	}
 	
@@ -97,6 +82,14 @@ public class ViaggioController {
 		return "/viaggioPrint";
 		
 		
+	}
+	@GetMapping("visualizza/{id}")
+	public String viewDipendentiByViaggio(@PathVariable Integer id,Model m) {
+		TurnoService tservice = new TurnoService();
+		List<Dipendente> ld= tservice.getDipendentiByViaggio(id);
+		m.addAttribute("dimensione", ld.size());
+		m.addAttribute("lista",ld);
+		return "visualizzaDipendentiByViaggio";
 	}
 	
 	

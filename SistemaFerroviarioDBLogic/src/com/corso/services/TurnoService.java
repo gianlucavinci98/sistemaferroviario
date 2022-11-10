@@ -1,15 +1,20 @@
 package com.corso.services;
 
+import java.sql.Date;
 import java.time.LocalDate;
+import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.BeanFactory;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
+import org.springframework.transaction.annotation.Transactional;
 
 import corso.DAOs.TurnoDAO;
 import corso.model.Dipendente;
+import corso.model.Stazione;
 import corso.model.Treno;
 import corso.model.Turno;
+import corso.model.Viaggio;
 import corso.spring.Beans;
 
 public class TurnoService {
@@ -45,8 +50,30 @@ public class TurnoService {
 		return turnoDAO.findDipendentiByTreno(treno);
 	}
 	
-	public List<Dipendente> findDipendentiByData(LocalDate data) {
+	public List<Dipendente> findDipendentiByData(Date data) {
 		return turnoDAO.findDipendentiByData(data);
 	}
 	
+	public void addViaggioTurnoDipendente(List<Integer> dipendenti, Viaggio vi ) {
+		
+		List<Turno> listaturno= new ArrayList<>();
+		DipendenteService ds= new DipendenteService();
+		List<Dipendente> listp= ds.getFindMoreDipendente(dipendenti);
+		for(Dipendente d: listp) {
+			Turno t = new Turno();
+			t.setTreno(vi.getIdTreno());
+			t.setViaggio(vi);
+			Date dataTurno = vi.getDataViaggio();
+			t.setDataTurno(dataTurno);
+			t.setDipendente(d);
+			listaturno.add(t);
+	}
+		for(Turno turno: listaturno) {
+			turnoDAO.add(turno);
+		}
+    }
+	
+	public List<Dipendente> getDipendentiByViaggio(Integer idViaggio){
+		return turnoDAO.findDipendentiByViaggio(idViaggio);
+	}
 }

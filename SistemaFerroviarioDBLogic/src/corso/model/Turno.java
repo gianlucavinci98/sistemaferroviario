@@ -1,5 +1,6 @@
 package corso.model;
 
+import java.sql.Date;
 import java.time.LocalDate;
 
 import javax.persistence.Column;
@@ -34,7 +35,7 @@ public class Turno {
 	private Treno treno;
 	
 	@Column(name="dataTurno")
-	private LocalDate dataTurno;
+	private Date dataTurno;
 	
 	@ManyToOne(optional=false, fetch=FetchType.EAGER)
 	@Fetch(value=FetchMode.SELECT)
@@ -67,11 +68,11 @@ public class Turno {
 		this.treno = treno;
 	}
 
-	public LocalDate getDataTurno() {
+	public Date getDataTurno() {
 		return dataTurno;
 	}
 
-	public void setDataTurno(LocalDate dataTurno) {
+	public void setDataTurno(Date dataTurno) {
 		this.dataTurno = dataTurno;
 	}
 

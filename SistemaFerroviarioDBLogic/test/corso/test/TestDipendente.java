@@ -60,12 +60,12 @@ public class TestDipendente {
 		
 		
 		
-		dao.addDipendente(d1);
-		dao.addDipendente(d2);
-		dao.addDipendente(d3);
-		dao.addDipendente(d4);
-		dao.addDipendente(d5);
-		
+//		dao.addDipendente(d1);
+//		dao.addDipendente(d2);
+//		dao.addDipendente(d3);
+//		dao.addDipendente(d4);
+//		dao.addDipendente(d5);
+//		
 		
 	}
 	@SuppressWarnings("resource")

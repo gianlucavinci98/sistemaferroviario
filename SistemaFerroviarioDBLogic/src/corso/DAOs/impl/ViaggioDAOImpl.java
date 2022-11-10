@@ -52,6 +52,7 @@ public class ViaggioDAOImpl implements ViaggioDAO{
 		return l;
 	}
 
+	
 	@Override
 	public Viaggio add(Viaggio viaggio) {
 		return manager.merge(viaggio);

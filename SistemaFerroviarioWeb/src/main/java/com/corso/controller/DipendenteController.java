@@ -74,7 +74,6 @@ public class DipendenteController {
 		Dipendente d = service.getFindDipendente(id);
 		List<Turno> turni = tservice.findByDipendente(d);
 		m.addAttribute("dipendente", d);
-		m.addAttribute("turni", turni);
 		return "visualizzaDipendente";
 	}
 	

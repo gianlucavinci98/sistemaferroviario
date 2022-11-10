@@ -1,5 +1,6 @@
 package corso.DAOs;
 
+import java.sql.Date;
 import java.time.LocalDate;
 import java.util.List;
 
@@ -19,6 +20,6 @@ public interface TurnoDAO {
 	public List<Turno> findByDipendente(Dipendente dipendente);
 	public List<Treno> findTreniByDipendente(Dipendente dipendente);
 	public List<Dipendente> findDipendentiByTreno(Treno treno);
-	public List<Dipendente> findDipendentiByData(LocalDate data);
-	
+	public List<Dipendente> findDipendentiByData(Date data);
+	public List<Dipendente> findDipendentiByViaggio(Integer idViaggio);
 }

@@ -1,5 +1,6 @@
 package com.corso.controller;
 
+import java.sql.Date;
 import java.time.LocalDate;
 import java.time.format.DateTimeParseException;
 import java.util.ArrayList;
@@ -68,7 +69,7 @@ public class TurnoController {
 		
 		if ((dipendente != null) && (treno != null)) {
 			try {
-				LocalDate dataTurno = LocalDate.parse(data);
+				Date dataTurno = Date.valueOf(LocalDate.parse(data));;
 				turno.setDipendente(dipendente);
 				turno.setTreno(treno);
 				turno.setDataTurno(dataTurno);
@@ -127,7 +128,7 @@ public class TurnoController {
 		TurnoService service = new TurnoService();
 		
 		try {
-			LocalDate dataTurno = LocalDate.parse(data);
+			Date dataTurno = Date.valueOf(LocalDate.parse(data));;
 			List<Dipendente> list = service.findDipendentiByData(dataTurno);
 			m.addAttribute("list", list);
 		} catch(DateTimeParseException e) {
@@ -136,5 +137,7 @@ public class TurnoController {
 		
 		return "printDipendenti";
 	}
+	
+	
 	
 }
