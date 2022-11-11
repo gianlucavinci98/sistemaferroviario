@@ -1,5 +1,6 @@
 package corso.test;
 
+import java.sql.Date;
 import java.time.LocalDate;
 import java.util.List;
 
@@ -34,7 +35,7 @@ public class TestTurno {
 		System.out.println();
 		
 		// Test findDipendenteByData()
-		LocalDate data = LocalDate.parse("2022-10-30");
+		Date data = Date.valueOf(LocalDate.parse("2022-10-30"));
 		
 		List<Dipendente> dipendenti = turnoDAO.findDipendentiByData(data);
 		

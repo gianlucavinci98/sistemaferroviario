@@ -1,0 +1,21 @@
+@charset "ISO-8859-1";
+
+
+#imgsalvo{
+	margin: auto;
+	width:700px;
+	border: 15px solid #9933ff;
+	box-shadow: 5px 5px 10px 2px #333333;
+	border-radius: 5px;
+}
+
+#contimg{
+	width: 700px;
+	margin: auto;
+}
+
+#testohome{
+   color: #9933ff;
+   font-size: 50px ;
+   font-family: lobster;
+}
