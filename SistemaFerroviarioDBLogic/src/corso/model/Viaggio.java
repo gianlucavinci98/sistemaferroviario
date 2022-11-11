@@ -36,15 +36,12 @@ public class Viaggio {
 	
 	@Column
 	private Date dataViaggio;
-	
-	@Column
-	private double voto;
-	
-	@Column
-	private int nvoti;
 
 	@OneToMany (mappedBy = "viaggio", fetch = FetchType.EAGER)
 	List<Prenotazione> prenotazioni;
+	
+	@Column
+	private int postiPrenotati;
 
 	public Viaggio() {
 	}
@@ -96,27 +93,23 @@ public class Viaggio {
 		this.dataViaggio = dataViaggio;
 	}
 
+	public int getPostiPrenotati() {
+		return postiPrenotati;
+	}
+
+	public void setPostiPrenotati(int postiPrenotati) {
+		this.postiPrenotati = postiPrenotati;
+	}
+
 	@Override
 	public String toString() {
-		return "[idViaggio=" + idViaggio + ", partenza=" + partenza.getNomeStazione() + ", arrivo=" + arrivo.getNomeStazione() + ", idTreno=" + treno.getIdTreno()
-				+ ", dataViaggio=" + dataViaggio + ", voto="+ voto+ "]";
+		return "Viaggio [idViaggio=" + idViaggio + ", partenza=" + partenza + ", arrivo=" + arrivo + ", treno=" + treno
+				+ ", dataViaggio=" + dataViaggio + ", prenotazioni=" + prenotazioni + ", postiPrenotati="
+				+ postiPrenotati + "]";
 	}
 
-	public double getVoto() {
-		return voto;
-	}
+	
 
-	public void setVoto(double voto) {
-		this.voto = voto;
-	}
-
-
-	public int getNvoti() {
-		return nvoti;
-	}
-
-	public void setNvoti() {
-		this.nvoti = this.nvoti+1;
-	}
+	
 
 }

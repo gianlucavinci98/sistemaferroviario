@@ -54,8 +54,7 @@ public class ViaggioController {
 	public String addViaggio(@RequestParam(name = "treno") Integer idTreno,
 			@RequestParam(name = "partenza") Integer idPartenza,
 			@RequestParam(name = "arrivo") Integer idArrivo,
-			@RequestParam(name = "data") String data,@RequestParam List<Integer> idDipendente)
-	{
+			@RequestParam(name = "data") String data,@RequestParam List<Integer> idDipendente){
 		
 		ViaggioService vs= new ViaggioService();
 		Viaggio v= vs.addViaggioTurno(idPartenza, idArrivo, idTreno, data);
@@ -67,21 +66,13 @@ public class ViaggioController {
 	
 	@GetMapping("/findViaggiByFilter")
 	public String findViaggiByFilter(@ModelAttribute ViaggioFilter vf,  Model m) {
-
-
 		ViaggioService v= new ViaggioService();
-
-		
-		
 		List<Viaggio> lista= v.getFindByFilter(vf);
-		
 		m.addAttribute("dimensione", lista.size());
 		m.addAttribute("lista",lista);
-		
-		return "/viaggioPrint";
-		
-		
+		return "/viaggioPrint";		
 	}
+	
 	@GetMapping("visualizza/{id}")
 	public String viewDipendentiByViaggio(@PathVariable Integer id,Model m) {
 		TurnoService tservice = new TurnoService();
@@ -91,5 +82,20 @@ public class ViaggioController {
 		return "visualizzaDipendentiByViaggio";
 	}
 	
+	@GetMapping("/viaggiPrenotare")
+	public String allViaggiPrenotabili(Model m){
+		ViaggioService v= new ViaggioService();
+		List<Viaggio> lista= v.getAllViaggi();
+		m.addAttribute("dimensione", lista.size());
+		m.addAttribute("lista",lista);
+		m.addAttribute("emp", new ViaggioFilter());
+		return "/printPrenoViaggio";
+	}
+	
+    @GetMapping("/viaggioP")
+	public String pageViaggioPrenot(Model m) {
+		m.addAttribute("emp", new ViaggioFilter());
+		return "/printPrenoViaggio"; 
+	}
 	
 }

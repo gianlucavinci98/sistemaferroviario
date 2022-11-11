@@ -56,12 +56,16 @@
 				
 			</li>
 			
+			<li class="has-children"><a href = "#">Prenotazione</a>
+				<ul class=submenu>
 			<c:if test="${sessionScope.utente.livello<1}">
-			<li><a href="/SistemaFerroviarioWeb/home/prenotazione/pagePrenotazione">Prenotazioni</a></li>
+			<li><a href="/SistemaFerroviarioWeb/home/prenotazione/pagePrenotazione">Le Mie Prenotazioni</a></li>
+			<li><a href="/SistemaFerroviarioWeb/home/viaggio/viaggiPrenotare">Visualizza Viaggi</a></li>
 			</c:if>
 			<c:if test="${sessionScope.utente.livello>1}">
 				<li><a href="/SistemaFerroviarioWeb/home/prenotazione/allPrenotazioni">Prenotazioni</a></li>
 			</c:if>
+			</ul>
 			<li><a href="/SistemaFerroviarioWeb/logout">Logout</a></li>	
 		</ul>
 	</nav>
