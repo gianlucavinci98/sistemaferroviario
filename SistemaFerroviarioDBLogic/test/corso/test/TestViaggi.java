@@ -25,7 +25,10 @@ public class TestViaggi {
 		BeanFactory factory = new AnnotationConfigApplicationContext(Beans.class);
 		ViaggioDAO dao = factory.getBean("viaggioDAO",ViaggioDAO.class);
 		ViaggioFilter filter=new ViaggioFilter();
-		filter.setIdViaggio(122);
+		//filter.setIdViaggio(122);
+		filter.setCittaPartenza("Bari");
+		filter.setCittaArrivo("Brindisi");
+		//filter.setIdTreno(1);
 		//System.out.println(filter.getIdViaggio());
 		List<Viaggio> viaggi = dao.findByFilter(filter);
 		for(Viaggio v : viaggi) {

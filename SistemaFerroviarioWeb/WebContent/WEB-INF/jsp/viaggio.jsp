@@ -26,8 +26,6 @@
 	<th>Arrivo</th>
 	<th>Treno</th>
 	<th>Data</th>
-	<th>Voto</th>
-	<th>#Voti</th>
 </tr>
 <c:forEach var="i" begin="0" end="${dimensione}" items="${lista}">
 	<tr align=center>
@@ -36,8 +34,6 @@
 	<td><c:out value="${i.arrivo.nomeStazione}, ${i.arrivo.citta}"></c:out></td>
 	<td><c:out value="${i.idTreno.idTreno} - ${i.idTreno.sigla}"></c:out></td>
 	<td><c:out value="${i.dataViaggio}"></c:out></td>
-	<td><c:out value="${i.voto}"></c:out></td>
-	<td><c:out value="${i.nvoti}"></c:out></td>
 </tr>
 </c:forEach>
 
@@ -48,23 +44,17 @@
 
 <form:form modelAttribute="emp" method="GET">
         
-        
-      
-Codice Viaggio: <form:input  type="number" path="idViaggio"/>
-<br><br>
+Codice Viaggio: <form:input  type="number" path="idViaggio"/> 
 
 Partenza: <form:input type="text" path="cittaPartenza"/>
-<br><br>
+<!-- <br><br> -->
 Arrivo: <form:input type="text" path="cittaArrivo"/>
-<br><br>
+<!-- <br><br> -->
 Treno: <form:input type="number" id="idTreno" path="idTreno" />
+
+Data: <form:input type="text" id="dataViaggio" path="dataViaggio"/>
 <br><br>
-Data: <form:input type="date" id="dataViaggio" path="dataViaggio"/>
-<br><br>
-Voto: <form:input type="number" id="voto" path="voto" />
-<br><br>
-<br><br>
-Numero Voti: <form:input type="number" id="nVoti" path="nvoti" />
+
 <input type="submit" name="submit" formaction="findViaggiByFilter" value="cerca">
 
 

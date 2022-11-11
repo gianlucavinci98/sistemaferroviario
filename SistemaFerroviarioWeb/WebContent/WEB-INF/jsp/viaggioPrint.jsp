@@ -26,9 +26,9 @@
 	<th>Arrivo</th>
 	<th>Treno</th>
 	<th>Data</th>
-	<th>Voto</th>
-	<th>#Voti</th>
 </tr>
+
+
 <c:forEach var="i" begin="0" end="${dimensione}" items="${lista}">
 	<tr align=center>	
 	<td><c:out value="${i.idViaggio}"></c:out></td>
@@ -36,12 +36,11 @@
 	<td><c:out value="${i.arrivo.nomeStazione}, ${i.arrivo.citta}"></c:out></td>
 	<td><c:out value="${i.idTreno.idTreno} - ${i.idTreno.sigla}"></c:out></td>
 	<td><c:out value="${i.dataViaggio}"></c:out></td>
-	<td><c:out value="${i.voto}"></c:out></td>
-	<td><c:out value="${i.nvoti}"></c:out></td>
 </tr>
 </c:forEach>
 
 </table>
+</div>
 <br></br>
 
 </body>

@@ -4,21 +4,19 @@ import java.sql.Date;
 
 import com.corso.services.TrenoService;
 
-import corso.model.Stazione;
+
 import corso.model.Treno;
 
 public class ViaggioFilter {
 	
-	private Integer idViaggio=0;
-	private Stazione partenza=null;
-	private Stazione arrivo=null;
-	private Treno treno=null;
-	private String cittaPartenza=null;
-	private String cittaArrivo=null;
+	private Integer idViaggio;
+	private Treno treno;
+	private String cittaPartenza;
+	private String cittaArrivo;
 	private int idTreno;
 	@SuppressWarnings("deprecation")
 	private Date dataViaggio=new Date(0,0,0);
-	private int voto=0;
+	private int voto;
 	private int nvoti;
 	
 	
@@ -70,26 +68,7 @@ public class ViaggioFilter {
 	public void setIdViaggio(Integer idViaggio) {
 		this.idViaggio = idViaggio;
 		
-	}
-
-	public Stazione getPartenza() {
-		return partenza;
-	}
-
-	public void setPartenza(Stazione partenza) {
-		this.partenza = partenza;
-	}
-
-	public Stazione getArrivo() {
-		return arrivo;
-	}
-
-	public void setArrivo(Stazione arrivo) {
-		this.arrivo = arrivo;
-	}
-
-	
-	
+	}	
 
 	public Date getDataViaggio() {
 		return dataViaggio;
