@@ -36,7 +36,7 @@ public class ViaggioService {
 	}
 	
 	public List<Viaggio> getFindByFilter(ViaggioFilter filter){
-		List<Viaggio> list= viaggioDAO .findByFilter(filter);
+		List<Viaggio> list= viaggioDAO.findByFilter(filter);
 		return list;
 	}
 	

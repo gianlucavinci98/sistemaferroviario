@@ -64,7 +64,7 @@ public class ViaggioDAOImpl implements ViaggioDAO{
 
 	@Override
 	public List<Viaggio> findByFilter(ViaggioFilter filter) {
-filter.setActive(true);
+
 		
 		CriteriaBuilder criteriaBuilder = manager.getCriteriaBuilder();
 		CriteriaQuery<Viaggio> criteriaQuery=  criteriaBuilder.createQuery (Viaggio.class);

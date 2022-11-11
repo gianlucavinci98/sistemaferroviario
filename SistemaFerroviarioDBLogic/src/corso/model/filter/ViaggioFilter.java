@@ -16,8 +16,7 @@ public class ViaggioFilter {
 	private int idTreno;
 	@SuppressWarnings("deprecation")
 	private Date dataViaggio=new Date(0,0,0);
-	private int voto;
-	private int nvoti;
+	
 	
 	
 	
@@ -78,28 +77,5 @@ public class ViaggioFilter {
 		this.dataViaggio = dataViaggio;
 	}
 
-	public int getVoto() {
-		return voto;
-	}
-
-	public void setVoto(int voto) {
-		this.voto = voto;
-	}
-
-	public int getNvoti() {
-		return nvoti;
-	}
-
-	public void setNvoti(int nvoti) {
-		this.nvoti = nvoti;
-	}
-
-	public boolean isActive() {
-		return isActive;
-	}
-
-	public void setActive(boolean isActive) {
-		this.isActive = isActive;
-	}
-
+	
 }
