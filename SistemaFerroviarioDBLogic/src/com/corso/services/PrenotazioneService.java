@@ -22,7 +22,7 @@ public class PrenotazioneService {
 		return p;
 	}
 	
-	public boolean addPrenotazione(Utente u,Viaggio v) {				
+	public Prenotazione addPrenotazione(Utente u,Viaggio v) {				
 		
 		int postiPrenotati= v.getPostiPrenotati();
 		int postiTreno = v.getIdTreno().getNumPosti();
@@ -31,14 +31,14 @@ public class PrenotazioneService {
 		Prenotazione p = new Prenotazione();
 		p.setUtente(u);
 		p.setViaggio(v);
-		prenotazioneDAO.add(p);
+		
 		postiPrenotati++;
 		v.setPostiPrenotati(postiPrenotati);
 		ViaggioService vs= new ViaggioService();
 		vs.add(v);
-		return true;
+		return prenotazioneDAO.add(p);
 		}
-		else return false;
+		else return null;
 	}
 	
 	public List<Prenotazione> allPrenotazioni(){

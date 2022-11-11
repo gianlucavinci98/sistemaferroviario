@@ -6,7 +6,7 @@ import corso.model.Prenotazione;
 
 
 public interface PrenotazioneDAO {
-	public void add(Prenotazione prenotazione);
+	public Prenotazione add(Prenotazione prenotazione);
 	public List<Prenotazione> findByUsername(String username);
 	public List<Prenotazione> all();
 }

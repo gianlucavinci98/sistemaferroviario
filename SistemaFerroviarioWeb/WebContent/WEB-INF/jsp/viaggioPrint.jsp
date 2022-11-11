@@ -31,7 +31,12 @@
 
 <c:forEach var="i" begin="0" end="${dimensione}" items="${lista}">
 	<tr align=center>	
-	<td><a href="../../home/prenotazione/addPrenotazione/${i.idViaggio}"><c:out value="${i.idViaggio}"></c:out></a></td>
+	<c:if test="${sessionScope.utente.livello>1}">
+		<td><c:out value="${i.idViaggio}"></c:out></td>
+	</c:if>
+	<c:if test="${sessionScope.utente.livello<1}">
+		<td><a href ="../../home/prenotazione/addPrenotazione/${i.idViaggio}"><c:out value="${i.idViaggio}"></c:out></a></td>
+	</c:if>
 	<td><c:out value="${i.partenza.nomeStazione}, ${i.partenza.citta}"></c:out></td>
 	<td><c:out value="${i.arrivo.nomeStazione}, ${i.arrivo.citta}"></c:out></td>
 	<td><c:out value="${i.idTreno.idTreno} - ${i.idTreno.sigla}"></c:out></td>

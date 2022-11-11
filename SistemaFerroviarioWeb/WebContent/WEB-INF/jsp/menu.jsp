@@ -45,22 +45,23 @@
 					</ul>
 			</li>
 			</c:if>
+			<c:if test="${sessionScope.utente.livello>1}">
 			<li class="has-children"><a href = "#">Treno</a>
 				<ul class=submenu>
-					<c:if test="${sessionScope.utente.livello>1}">
+				
 						<li><a href="/SistemaFerroviarioWeb/home/treno/builderTreno">Costruisci Treno</a></li>
-					</c:if>
 					<li><a href="/SistemaFerroviarioWeb/home/treno/infoTreno">Info Treno</a></li>
 					<li><a href="/SistemaFerroviarioWeb/home/treno/visualizzaTreni">AllTreni</a></li>
+						
 				</ul>
 				
 			</li>
-			
+			</c:if>
 			<li class="has-children"><a href = "#">Prenotazione</a>
 				<ul class=submenu>
 			<c:if test="${sessionScope.utente.livello<1}">
 			<li><a href="/SistemaFerroviarioWeb/home/prenotazione/pagePrenotazione">Le Mie Prenotazioni</a></li>
-			<li><a href="/SistemaFerroviarioWeb/home/viaggio/viaggiPrenotare">Visualizza Viaggi</a></li>
+			<li><a href="/SistemaFerroviarioWeb/home/viaggio/allViaggi">Visualizza Viaggi</a></li>
 			</c:if>
 			<c:if test="${sessionScope.utente.livello>1}">
 				<li><a href="/SistemaFerroviarioWeb/home/prenotazione/allPrenotazioni">Prenotazioni</a></li>

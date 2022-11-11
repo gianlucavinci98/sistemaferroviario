@@ -9,16 +9,16 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
 
-import com.corso.services.LoginService;
+
 import com.corso.services.PrenotazioneService;
 import com.corso.services.ViaggioService;
 
 import corso.model.Prenotazione;
 import corso.model.Utente;
 import corso.model.Viaggio;
-import corso.model.filter.ViaggioFilter;
+
+
 
 @Controller
 @RequestMapping("/home/prenotazione")
@@ -45,18 +45,22 @@ public class PrenotazioneController {
 	}
 	
 	@GetMapping("/addPrenotazione/{id}")
-	public String addPrenotazione(HttpSession session, @PathVariable Integer id, Model m) {
-		Utente u= (Utente) session.getAttribute("utente");
-		ViaggioService vs= new ViaggioService();
-     	Viaggio v = vs.findViaggioById(id);
-		PrenotazioneService ps= new PrenotazioneService();
-		boolean b= ps.addPrenotazione(u, v);
-		if(b)
-		    m.addAttribute("message", "Prenotazione avvenuta con successo!");
-		else 
-			m.addAttribute("message", "Posti esauriti! Treno pieno!");
-		return "/addPrenotazione"; 
+	public String addPrenotazione(HttpSession session,@PathVariable Integer id,Model m) {
+		ViaggioService vs = new ViaggioService();
+		Utente u = (Utente) session.getAttribute("utente");
+		Viaggio v = vs.findViaggioById(id);
+		PrenotazioneService ps = new PrenotazioneService();
+		Prenotazione p = ps.addPrenotazione(u, v);
+		if(p!=null) {
+			m.addAttribute("message", "Prenotazione andata a buon fine");
+			m.addAttribute("prenotazione",p);
+			return "successPrenotazione";
+		} else {
+			m.addAttribute("message", "Posti pieni");
+			return "failurePrenotazione";
+		}		
+		
 	}
-	
-	
 }
+	
+

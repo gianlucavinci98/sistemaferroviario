@@ -17,8 +17,8 @@ public class PrenotazioneDAOImpl implements PrenotazioneDAO{
 	
 	@Override
 	@Transactional
-	public void add(Prenotazione prenotazione) {
-		manager.merge(prenotazione);
+	public Prenotazione add(Prenotazione prenotazione) {
+		return manager.merge(prenotazione);
 	}
 	
 	public List<Prenotazione> findByUsername(String username) {
