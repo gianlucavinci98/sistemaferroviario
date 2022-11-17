@@ -41,7 +41,7 @@
 		</tr>
 		<c:forEach var="viaggio" items="${sessionScope.treno.viaggi}">
 			<tr align="center">
-				<td>${viaggio.idViaggio}</td>
+				<td><a href="../../../home/viaggio/visualizza/${viaggio.idViaggio}">${viaggio.idViaggio}</a></td>
 				<td>${viaggio.partenza.nomeStazione}, ${viaggio.partenza.citta}</td>
 				<td>${viaggio.arrivo.nomeStazione}, ${viaggio.arrivo.citta}</td>
 				<td>${viaggio.dataViaggio}</td>
