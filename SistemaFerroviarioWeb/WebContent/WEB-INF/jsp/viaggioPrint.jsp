@@ -32,7 +32,7 @@
 <c:forEach var="i" begin="0" end="${dimensione}" items="${lista}">
 	<tr align=center>	
 	<c:if test="${sessionScope.utente.livello>1}">
-		<td><c:out value="${i.idViaggio}"></c:out></td>
+		<td><a href="visualizza/${i.idViaggio}"><c:out value="${i.idViaggio}"></c:out></a></td>
 	</c:if>
 	<c:if test="${sessionScope.utente.livello<1}">
 		<td><a href ="../../home/prenotazione/addPrenotazione/${i.idViaggio}"><c:out value="${i.idViaggio}"></c:out></a></td>

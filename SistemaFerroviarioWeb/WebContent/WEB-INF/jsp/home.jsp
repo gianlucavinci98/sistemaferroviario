@@ -29,13 +29,13 @@
   
   %>
 -->
-    <br></br>
-    <div style="text-align: center" >
-    <h1 id="testohome">Sistema Ferroviario WEB</h1>
-    </div>
+<!--     <br></br> -->
+<!--     <div style="text-align: center" > -->
+<!--     <h1 id="testohome">Sistema Ferroviario WEB</h1> -->
+<!--     </div> -->
     
-    <div id="contimg" >
-    <img src="resources/img/imgtrenohome.png" id="imgsalvo">
-	</div>
+<!--     <div id="contimg" > -->
+<!--     <img src="resources/img/imgtrenohome.png" id="imgsalvo"> -->
+<!-- 	</div> -->
 </body>
 </html>

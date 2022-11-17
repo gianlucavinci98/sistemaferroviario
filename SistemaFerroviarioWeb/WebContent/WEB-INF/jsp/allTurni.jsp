@@ -75,7 +75,7 @@
 		<table>
 			<tr>
 				<th>idTurno</th>
-				<th>idDipendente</th>
+				<th>Dipendente</th>
 				<th>idTreno</th>
 				<th>Data</th>
 				<c:if test="${sessionScope.utente.livello > 1}">
@@ -85,7 +85,7 @@
 			<c:forEach var="turno" items="${list}">
 				<tr align="center">
 					<td>${turno.idTurno}</td>
-					<td>${turno.dipendente.idDipendente}</td>
+					<td>${turno.dipendente.nome} ${turno.dipendente.cognome}</td>
 					<td>${turno.treno.idTreno}</td>
 					<td>${turno.dataTurno}</td>
 					<c:if test="${sessionScope.utente.livello > 1}">
