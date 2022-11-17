@@ -1,5 +1,7 @@
 package corso.model;
 
+import java.awt.Image;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
@@ -20,6 +22,9 @@ public class Dipendente {
 	
 	@Column
 	private String ruolo;
+	
+	@Column 
+	private String imgProfilo;
 
 	public Dipendente() {
 	}
@@ -62,6 +67,15 @@ public class Dipendente {
 	public void setRuolo(String ruolo) {
 		this.ruolo = ruolo;
 	}
+	
+	
+//	public Image getImgProfilo() {
+//		return imgProfilo;
+//	}
+//
+//	public void setImgProfilo(Image imgProfilo) {
+//		this.imgProfilo = imgProfilo;
+//	}
 
 	@Override
 	public String toString() {
