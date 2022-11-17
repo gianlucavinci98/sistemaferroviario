@@ -5,7 +5,7 @@ import corso.model.Treno;
 public class TrenoBuilder {
 	private int peso=0;
 	private int numeroPosti = 0;
-	private String tipo = null;
+	private String tipo = "P";
 	private int pesoTrainabile = 0;
 		
 		public Treno build(String sequenza) {
@@ -25,11 +25,11 @@ public class TrenoBuilder {
 					Passeggeri p = new Passeggeri();
 					peso=peso + p.getPeso();
 					numeroPosti = numeroPosti + p.getnPasseggeri();
-					tipo = "P";
 				break;
 				case 'R':
 					Ristorante r = new Ristorante();
 					peso = peso + r.getPeso();
+					tipo = tipo + "R";
 				break;
 				
 				}

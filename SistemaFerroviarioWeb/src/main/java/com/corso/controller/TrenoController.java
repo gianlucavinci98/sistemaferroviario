@@ -94,7 +94,7 @@ public class TrenoController {
 		m.addAttribute("list",t);
 		return "/visualizzaTreni";
 	}
-		
 	
+
 
 }

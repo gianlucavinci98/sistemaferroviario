@@ -14,6 +14,16 @@
 	</div>
 
 
+	
+	<form>
+	<div style="text-align:center">
+		Tipo: <input type="text" name="tipo">
+		<input type="submit" value="cerca" formaction="searchByType">
+	</div>
+
+	</form>
+		<br><br>
+
 
 <table>
 			<tr>
@@ -33,12 +43,8 @@
 				</tr>
 			</c:forEach>
 		</table>
-	<br><br>
-	
-	<form>
-		Tipo: <input type="text" name="tipo">
-		<input type="submit" value="sumbit" formaction="searchByType">
-	</form>
+
+
 
 </body>
 </html>
