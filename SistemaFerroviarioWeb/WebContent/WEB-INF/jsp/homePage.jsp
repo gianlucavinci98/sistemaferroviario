@@ -12,7 +12,7 @@
 <div id="header">
   <h1>Your Company</h1>
   <ul>
-    <li><a href="#">Contact Us</a></li>
+    <li id=button><a href="#">Contact Us</a></li>
     <li><a href="#">Sign Up</a></li>
     <li><a href="#">Sign In</a></li>
     <li><a href="#">News</a></li>
