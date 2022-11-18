@@ -1,12 +1,13 @@
-	<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
-    <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>  
+    <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %> 
     <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+     
 <!DOCTYPE html>
 <html>
 
 <head>
-<link href="<c:url value="/resources/css/tabella.css" />" rel="stylesheet">
+<link  rel="stylesheet" type="text/css" href="resources/css/tabella.css"/>
 <link href="<c:url value="/resources/css/corpo.css" />" rel="stylesheet">
 <meta charset="ISO-8859-1">
 <title>Elenco Viaggi</title>
@@ -15,11 +16,29 @@
 </head>
 
 <body>
+<br>
+<div align="center">
 
-<div>
-<c:if test="${sessionScope.utente!=null }">
-<%@include file="menu.jsp" %>
-</c:if>
+
+
+<form:form modelAttribute="emp" method="GET">
+        
+Codice Viaggio: <form:input  type="number" path="idViaggio"/> 
+
+Partenza: <form:input type="text" path="cittaPartenza"/>
+<!-- <br><br> -->
+Arrivo: <form:input type="text" path="cittaArrivo"/>
+<!-- <br><br> -->
+Treno: <form:input type="number" id="idTreno" path="idTreno" />
+
+Data: <form:input type="text" id="dataViaggio" path="dataViaggio"/>
+
+<input type="submit" name="submit" formaction="findViaggiByFilter" value="cerca">
+<br><br>
+
+
+ </form:form>
+
 </div>
 
 <div>
@@ -31,19 +50,9 @@
 	<th>Treno</th>
 	<th>Data</th>
 </tr>
-
-
 <c:forEach var="i" begin="0" end="${dimensione}" items="${lista}">
 	<tr align=center>
-	<c:if test="${sessionScope.utente==null}">
-		<td><c:out value="${i.idViaggio}"></c:out></td>
-	</c:if>	
-	<c:if test="${sessionScope.utente.livello>1}">
-		<td><a href="visualizza/${i.idViaggio}"><c:out value="${i.idViaggio}"></c:out></a></td>
-	</c:if>
-	<c:if test="${sessionScope.utente.livello<1}">
-		<td><a href ="../../home/prenotazione/addPrenotazione/${i.idViaggio}"><c:out value="${i.idViaggio}"></c:out></a></td>
-	</c:if>
+	<td><c:out value="${i.idViaggio}"></c:out></td>
 	<td><c:out value="${i.partenza.nomeStazione}, ${i.partenza.citta}"></c:out></td>
 	<td><c:out value="${i.arrivo.nomeStazione}, ${i.arrivo.citta}"></c:out></td>
 	<td><c:out value="${i.idTreno.idTreno} - ${i.idTreno.sigla}"></c:out></td>
@@ -52,8 +61,13 @@
 </c:forEach>
 
 </table>
-</div>
 <br></br>
+
+</div>
+
+
+
+
 
 </body>
 </html>
