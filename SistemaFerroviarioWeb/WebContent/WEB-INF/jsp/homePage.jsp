@@ -21,6 +21,7 @@
   <div id="TEXT">
    
 </div>
+</div>
 <div id="FOOTER">
  
   <p>IDM13 - 2022 </p>
