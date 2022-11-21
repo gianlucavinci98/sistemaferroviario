@@ -27,7 +27,7 @@ public class HomeController {
 	
 	@GetMapping("/homePage")
 	public String homePage() {
-		return "prova";
+		return "homePage";
 	}
 	
 	@GetMapping("/homeTuttiViaggi")
