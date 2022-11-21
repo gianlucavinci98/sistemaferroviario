@@ -20,7 +20,7 @@
 	${dipendente.nome}
 	${dipendente.cognome}
 	${dipendente.ruolo}
- 	<img src="C:\Users\Andrea\Desktop\ImmaginiProject\profiloAlessio.jpg">
+ 	<img src="http://127.0.0.1:8887/profiloAlessio.jpg">
 	</div>
 </body>
 </html>
