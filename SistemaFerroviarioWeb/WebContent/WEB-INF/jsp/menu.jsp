@@ -56,8 +56,9 @@
 				
 			</li>
 			</c:if>
-			
+			<c:if test="${sessionScope.utente.livello!=1}">
 			<li class="has-children"><a href = "#">Prenotazione</a>
+			
 				<ul class=submenu>
 			<c:if test="${sessionScope.utente.livello<1}">
 			<li><a href="/SistemaFerroviarioWeb/home/prenotazione/pagePrenotazione">Le Mie Prenotazioni</a></li>
@@ -68,6 +69,7 @@
 			</c:if>
 				
 			</ul>
+			</c:if>
 			<li><a href="/SistemaFerroviarioWeb/logout">Logout</a></li>	
 		</ul>
 	</nav>
